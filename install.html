@@ -75,8 +75,6 @@
                 <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM"><b>Discord<b></a> or <a href="https://t.me/+gzBCQExtLQo1YTNh"><b>Telegram<a></a>
 
                     <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,7 +128,10 @@
     <div class="popup-content">
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <h2>Release Notes</h2>
-        <div id="releaseNotesContent"></div>
+        <div id="releaseNotesContent">
+            <p>This release includes bug fixes and performance improvements.</p>
+            <p>Thank you for using our app!</p>
+        </div>
     </div>
 </div>
 
@@ -145,38 +146,29 @@
         document.getElementById("popup").style.display = "none";
     }
 
-    // Function to fetch release notes from GitHub API
-    function fetchReleaseNotes() {
-        fetch('https://api.github.com/repos/rebelonion/Dantotsu/releases/latest')
-            .then(response => response.json())
-            .then(data => {
-                const releaseNotesContent = document.getElementById('releaseNotesContent');
-                if (data.body) {
-                    releaseNotesContent.innerHTML = data.body;
-                } else {
-                    releaseNotesContent.innerHTML = "<p>No release notes available.</p>";
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching release notes:', error);
-                const releaseNotesContent = document.getElementById('releaseNotesContent');
-                releaseNotesContent.innerHTML = "<p>Error fetching release notes.</p>";
-            });
-    }
-
-    // Open popup and fetch release notes on download button click
+    // Open popup on download button click
     const downloadBtn = document.getElementById('downloadBtn');
     downloadBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        fetchReleaseNotes();
         displayPopup();
     });
 </script>
 
+<!-- JavaScript to initiate download -->
+<script>
+    // Function to download APK file
+    function downloadAPK() {
+        // Replace this URL with the actual download link
+        const apkDownloadUrl = 'https://github.com/rebelonion/Dantotsu/releases/latest/download/app-release.apk';
+        window.location.href = apkDownloadUrl;
+    }
+
+    // Initiate download on popup open
+    document.getElementById('popup').addEventListener('click', downloadAPK);
+</script>
+
 </body>
 </html>
-
-
                         <!-- Download button for Beta app -->
                         <div>
                             <button id="downloadButton" class="text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold">DOWNLOAD BETA APP</button>
