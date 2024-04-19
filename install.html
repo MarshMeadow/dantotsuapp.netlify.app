@@ -135,7 +135,7 @@
                         </div>
 
                         <!-- Architecture selection popup -->
-                        <div id="architecturePopup" style="display: none;" class="rounded-md absolute z-10 backdrop-filter backdrop-blur-md bg-opacity-75 p-4">
+                        <div id="architecturePopup" style="display: none; width: 295px;" class="rounded-md absolute z-10 backdrop-filter backdrop-blur-md bg-opacity-75 p-4">
                             <!-- Close button -->
                             <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeArchitecturePopup()">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,12 +151,12 @@
                             </ul>
                             <!-- Information link -->
                             <div class="text-center mt-4">
-                                <a href="#" onclick="toggleInfoPopup()" class="text-blue-500 hover:underline text-sm">Don't know which architecture to select?<br> Click Here</a>
+                                <a href="#" onclick="toggleInfoPopup()" class="text-blue-500 hover:underline text-sm">ⓘ Click For Info On Architecture</a>
                             </div>
                         </div>
 
                         <!-- Information popup -->
-                        <div id="infoPopup" style="display: none;" class="rounded-md absolute z-10 backdrop-filter backdrop-blur-md bg-opacity-75 p-4">
+                        <div id="infoPopup" style="display: none; width: 295px;" class="rounded-md absolute z-10 backdrop-filter backdrop-blur-md bg-opacity-75 p-4">
                             <!-- Back button -->
                             <button class="absolute top-0 left-0 mt-2 ml-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="toggleInfoPopup()">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -166,17 +166,14 @@
                             <br>
                             <!-- Information text -->
                             <div class="text-xs">
-                                <p class="mb-1"><strong>•ARM64-v8a:</strong> Newer devices (post-2016)</p>
-                                <p class="mb-1"><strong>•armeabi-v7a:</strong> Older or budget devices (pre-2016)</p>
-                                <p class="mb-1"><strong>•x86:</strong> Some tablets with Intel processors</p>
-                                <p class="mb-1"><strong>•x86_64:</strong> Newer tablets with 64-bit Intel processors</p>
-                                <p class="mb-1"><strong>To check:</strong></p>
-                                <ol class="list-decimal ml-4 mb-1">
-                                    <li>App: Use "CPU-Z" or "Droid Hardware Info"
-                                        <br>from Google Play</li>
-                                    <li>Online: Check the manufacturer's website or
-                                        <br>tech review sites</li>
-                                </ol>
+                                <p class="mb-1"><strong><u>ARM64-v8a</u> •</strong> <i>Newer devices (post-2016)</i></p>
+                                <p class="mb-1"><strong><u>armeabi-v7a</u> •</strong> <i>Older or budget devices (pre-2016)</i></p>
+                                <p class="mb-1"><strong><u>x86</u> •</strong> <i>Some tablets with Intel processors</i></p>
+                                <p class="mb-1"><strong><u>x86_64</u> •</strong> <i>Newer tablets with 64-bit Intel processors</i></p>
+                                <br>
+                                <p class="mb-1"><strong><u>To check:</u></strong></p>
+                                <p class="mb-1"><strong><u>App</u> •</strong> <i>Use "CPU-Z" or "Droid Hardware Info" from Google Play</i></p>
+                                <p class="mb-1"><strong><u>Online</u> •</strong> <i>Check the manufacturer's website or tech review sites</i></p>
                             </div>
                         </div>
 
