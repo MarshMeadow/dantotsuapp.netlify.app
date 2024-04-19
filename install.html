@@ -75,8 +75,6 @@
                 <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM"><b>Discord<b></a> or <a href="https://t.me/+gzBCQExtLQo1YTNh"><b>Telegram<a></a>
 
                     <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -169,11 +167,98 @@
 
 </body>
 </html>
-                        <!-- Download button for Beta app -->
-                        <div>
-                            <button id="downloadButton" class="text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold">DOWNLOAD BETA APP</button>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Page</title>
+    <style>
+        /* Dark mode styles for popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            color: #fff;
+        }
 
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Download button for Beta app -->
+<div>
+    <button id="downloadButton" class="text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold">DOWNLOAD BETA APP</button>
+</div>
+
+<!-- Popup content -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Release Notes</h2>
+        <div id="releaseNotesContent">
+            <p>This release includes bug fixes and improvements.</p>
+            <p>Thank you for testing our beta app!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to display popup
+    function displayPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    // Function to close popup
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+
+    // Open popup on download button click
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        displayPopup();
+    });
+</script>
+
+<!-- JavaScript to initiate download -->
+<script>
+    // Function to download APK file
+    function downloadAPK() {
+        // Replace this URL with the actual download link for beta app
+        const apkDownloadUrl = 'https://example.com/beta-app.apk';
+        window.location.href = apkDownloadUrl;
+    }
+
+    // Initiate download on popup open
+    document.getElementById('popup').addEventListener('click', downloadAPK);
+</script>
+
+</body>
+</html>
                         <script>
                             // Function to fetch latest prerelease from GitHub
                             async function fetchLatestPrerelease() {
