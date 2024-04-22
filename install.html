@@ -98,6 +98,8 @@
                             <p id="universalReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- View Full Changelogs button -->
                             <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('universal')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                            <!-- Last updated timestamp for Beta -->
+                            <p id="universalLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- Transparent Line -->
                             <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
                             <!-- Title -->
@@ -129,6 +131,8 @@
                             <p id="betaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- View Full Changelogs button -->
                             <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('beta')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                            <!-- Last updated timestamp for Beta -->
+                            <p id="betaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- Transparent Line -->
                             <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
                             <!-- Title -->
@@ -160,6 +164,8 @@
                             <p id="alphaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- View Full Changelogs button -->
                             <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('alpha')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                            <!-- Last updated timestamp for Alpha -->
+                            <p id="alphaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
                             <!-- Transparent Line -->
                             <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
                             <!-- Title -->
@@ -260,6 +266,9 @@
                                         // Truncate release notes to 5 lines initially
                                         truncateReleaseNotes('universalReleaseNotes');
                                         updateUniversalArchitectureButtons(data.assets);
+                                        // Add last update timestamp
+                const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
+                document.getElementById('universalLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
                                     } else {
                                         console.error('Failed to fetch release information:', data.message);
                                     }
@@ -299,6 +308,9 @@
                                             // Truncate release notes to 5 lines initially
                                             truncateReleaseNotes('betaReleaseNotes');
                                             updateBetaArchitectureButtons(betaRelease.assets);
+                                            // Add last update timestamp
+                const lastUpdateTimestamp = new Date(betaRelease.published_at).toISOString(); // Use betaRelease's timestamp
+                document.getElementById('betaLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
                                         } else {
                                             console.error('No beta release found.');
                                             alert('No beta release found.');
@@ -340,6 +352,9 @@
                                         // Truncate release notes to 5 lines initially
                                         truncateReleaseNotes('alphaReleaseNotes');
                                         updateArchitectureButtons(data.assets);
+                                        // Add last update timestamp
+                const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
+                document.getElementById('alphaLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
                                     } else {
                                         console.error('Failed to fetch release information:', data.message);
                                     }
@@ -347,6 +362,31 @@
                                     console.error('Error fetching release information:', error);
                                 }
                             }
+
+                            // Function to format timestamp in human-readable format
+    function formatTimestamp(timestamp) {
+        const currentDate = new Date();
+        const lastUpdateDate = new Date(timestamp); // Use provided timestamp
+        const diff = Math.floor((currentDate - lastUpdateDate) / 1000); // Difference in seconds
+
+        if (diff < 60) {
+            return 'just now';
+        } else if (diff < 3600) {
+            const minutes = Math.floor(diff / 60);
+            return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+        } else if (diff < 86400) {
+            const hours = Math.floor(diff / 3600);
+            return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+        } else {
+            const days = Math.floor(diff / 86400);
+            return `${days} day${days > 1 ? 's' : ''} ago`;
+        }
+    }
+
+    // Call fetch function to load release information
+    fetchReleaseInfo();
+    fetchUniversalReleaseInfo();
+    fetchBetaReleaseInfo();
 
                             // Function to redirect to the download link for the Alpha APK
     function redirectToApkDownload(downloadUrl) {
