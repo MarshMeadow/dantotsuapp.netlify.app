@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore our open-source mobile app tailored for Anilist enthusiasts. Inspired by Saikou, our app is powered by Tachi/Aniyomi extensions for an enhanced experience. Download our app now to immerse yourself in a world of Anime and Manga like never before!">
@@ -26,738 +25,983 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/0a1007e48a.js" crossorigin="anonymous"></script>
     <title>Dantotsu</title>
-</head>
-<style>
-    html,
-      body {
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-      }
-</style>
+    <style>
+      /* CSS Animation for shaking */
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
 
-<body class="bg-indigo-950">
+        25% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        50% {
+          transform: translateX(5px) rotate(1deg);
+        }
+
+        75% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .shake:hover {
+        animation: shake 0.5s infinite;
+      }
+    </style>
+    <style>
+      /* CSS Animation for shaking */
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+
+        25% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        50% {
+          transform: translateX(5px) rotate(1deg);
+        }
+
+        75% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .shake:hover {
+        animation: shake 0.5s infinite;
+      }
+    </style>
+  </head>
+  <style>
+    html,
+    body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+  </style>
+  <body class="bg-indigo-950">
     <!-- NAVBAR -->
     <nav class="bg-slate-950 bg-opacity-0 transition bg-transition text-white p-2 fixed w-full z-40">
-        <div class="container mx-auto flex justify-between">
-            <div class="flex items-center">
-                <a href="https://dantotsu.app" class="text-2xl font-bold">
-                    <img src="images/dantotsu_logo-f1s.png" alt="Dantotsu" class="h-10 transition-opacity hover:opacity-80">
-                </a>
-            </div>
-            <div class="flex items-center">
-                <!-- <div class="relative group">
-          <button id="languageDropdown" class="mr-4 transition-colors hover:text-purple-500">
-            <i class="fa-solid fa-globe"></i> 
-          </button>
-          <ul id="languageOptions" class="absolute hidden bg-white text-black p-2 space-y-1 rounded-lg shadow-md right-0 mt-3">
-            <button class="language-button" data-lang="en">English</button>
-            <button class="language-button" data-lang="hi">Hindi</button>
-            <button class="language-button" data-lang="es">Spanish</button>
-          </ul>
-        </div> -->
-                <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500"><i
-            class="fa-solid fa-mug-saucer"></i></a>
-                <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500"><i
-            class="fa-brands fa-discord"></i></a>
-                <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500"><i
-            class="fa-brands fa-telegram"></i></a>
-                <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500"><i
-            class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
-    </nav>
+      <div class="container mx-auto flex justify-between">
+        <div class="flex items-center">
+          <a href="javascript:void(0);" onclick="incrementCounter()" class="text-2xl font-bold">
+            <img src="images/dantotsu_logo-f1s.png" alt="Dantotsu" class="h-10 transition-opacity hover:opacity-80" />
+          </a>
+          <script>
+            // Retrieve counter value from sessionStorage or default to 0
+            var cursedCounter = parseInt(sessionStorage.getItem("cursedCounter")) || 0;
 
+            function incrementCounter() {
+              cursedCounter++;
+              if (cursedCounter % 3 === 0) {
+                // Redirect to rickroll video
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                // Reset counter after redirect
+                sessionStorage.removeItem("cursedCounter");
+              } else {
+                // Store the updated counter value in sessionStorage
+                sessionStorage.setItem("cursedCounter", cursedCounter);
+                // Reload the page
+                window.location.reload(true);
+              }
+            }
+          </script>
+        </div>
+        <div class="flex items-center">
+          <!-- <div class="relative group"><button id="languageDropdown" class="mr-4 transition-colors hover:text-purple-500"><i class="fa-solid fa-globe"></i></button><ul id="languageOptions" class="absolute hidden bg-white text-black p-2 space-y-1 rounded-lg shadow-md right-0 mt-3"><button class="language-button" data-lang="en">English</button><button class="language-button" data-lang="hi">Hindi</button><button class="language-button" data-lang="es">Spanish</button></ul></div> -->
+          <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-solid fa-mug-saucer"></i>
+          </a>
+          <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
     <!-- HERO -->
     <section id="hero" class="text-white py-20 h-screen shadow-lg relative" style="background-image: url('images/ei_1698849603612-removebg-preview-1.png'); background-size: cover; background-position: center;">
-        <div class="container h-full mx-auto flex flex-col justify-center items-center relative z-10">
-            <div class="text-center">
-                <h1 class="text-5xl font-bold" data-lang="en">Installation</h1> &nbsp;
-                <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM"><b>Discord<b></a> or <a href="https://t.me/+gzBCQExtLQo1YTNh"><b>Telegram<a></a>
-
-                    <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
-
-
-                        <!-- Download button for Universal app -->
-                        <div class="mb-4">
-                            <button id="downloadButton1" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-7 rounded-full transition-colors" onclick="toggleUniversalArchitecturePopup()">DOWNLOAD STABLE RELEASE</button>
-                        </div>
-
-                        <!-- Universal Architecture selection popup -->
-                        <div id="universalArchitecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
-                            <!-- Close button -->
-                            <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeUniversalArchitecturePopup()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            <br>
-                            <!-- Release Notes -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Stable Release?</h2>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <p id="universalReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- View Full Changelogs button -->
-                            <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('universal')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
-                            <!-- Last updated timestamp for Beta -->
-                            <p id="universalLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <!-- Title -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
-                            <!-- Architecture options -->
-                            <ul class="space-y-2" id="universalArchitectureList">
-                                <!-- Architecture options will be dynamically added here -->
-                            </ul>
-                        </div>
-
-                        <!-- Download button for Beta app -->
-                        <div class="mb-4">
-                            <button id="downloadButton2" class="text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold" onclick="toggleBetaArchitecturePopup()">DOWNLOAD BETA RELEASE</button>
-                        </div>
-
-                        <!-- Beta Architecture selection popup -->
-                        <div id="betaArchitecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
-                            <!-- Close button -->
-                            <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeBetaArchitecturePopup()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            <br>
-                            <!-- Release Notes -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Beta Release?</h2>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <p id="betaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- View Full Changelogs button -->
-                            <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('beta')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
-                            <!-- Last updated timestamp for Beta -->
-                            <p id="betaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <!-- Title -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
-                            <!-- Architecture options -->
-                            <ul class="space-y-2" id="betaArchitectureList">
-                                <!-- Architecture options will be dynamically added here -->
-                            </ul>
-                        </div>
-
-                        <!-- Download button for Alpha app -->
-                        <div>
-                            <button id="downloadButton3" class="text-white bg-gradient-to-r from-red-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold" onclick="toggleAlphaArchitecturePopup()">DOWNLOAD ALPHA RELEASE</button>
-                        </div>
-
-                        <!-- Alpha Architecture selection popup -->
-                        <div id="architecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
-                            <!-- Close button -->
-                            <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeArchitecturePopup()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            <br>
-                            <!-- Release Notes -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Alpha Release?</h2>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <p id="alphaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- View Full Changelogs button -->
-                            <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('alpha')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
-                            <!-- Last updated timestamp for Alpha -->
-                            <p id="alphaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
-                            <!-- Transparent Line -->
-                            <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
-                            <!-- Title -->
-                            <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
-                            <!-- Architecture options -->
-                            <ul class="space-y-2" id="architectureList">
-                                <!-- Architecture options will be dynamically added here -->
-                            </ul>
-                            <!-- Information link -->
-                            <div class="text-center mt-4">
-                                <a href="#" onclick="toggleInfoPopup()" class="text-blue-500 hover:underline text-sm" style="font-family: Arial, sans-serif; font-size: 10px;">ⓘ Click For Info On Architecture</a>
-                            </div>
-                        </div>
-
-
-                        <!-- Information popup -->
-                        <div id="infoPopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
-                            <!-- Close button -->
-                            <button class="absolute top-0 left-2 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="toggleInfoPopup()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <br>
-                            <!-- Information text -->
-                            <div class="text-xs">
-                                <p class="mb-1"><strong><u>ARM64-v8a</u> •</strong> <i>Newer devices (post-2016)</i></p>
-                                <p class="mb-1"><strong><u>armeabi-v7a</u> •</strong> <i>Older or budget devices (pre-2016)</i></p>
-                                <p class="mb-1"><strong><u>x86</u> •</strong> <i>Some tablets with Intel processors</i></p>
-                                <p class="mb-1"><strong><u>x86_64</u> •</strong> <i>Newer tablets with 64-bit Intel processors</i></p>
-                                <br>
-                                <p class="mb-1"><strong><u>To check:</u></strong></p>
-                                <p class="mb-1"><strong><u>App</u> •</strong> <i>Use "CPU-Z" or "Droid Hardware Info" from Google Play</i></p>
-                                <p class="mb-1"><strong><u>Online</u> •</strong> <i>Check the manufacturer's website or tech review sites</i></p>
-                            </div>
-                        </div>
-
-                        <style>
-                            .popup {
-                                border: 0px solid white; 
-                            }
-                        </style>
-
-                        <script>
-                            let currentPopup = null;
-                        
-                            // Function to toggle the architecture selection popup for Universal App
-                            function toggleUniversalArchitecturePopup() {
-                                fetchUniversalReleaseInfo(); // Fetch Universal release info
-                                togglePopup('universalArchitecturePopup');
-                            }
-                        
-                            // Function to toggle the architecture selection popup for Beta App
-                            function toggleBetaArchitecturePopup() {
-                                fetchBetaReleaseInfo(); // Fetch Beta release info
-                                togglePopup('betaArchitecturePopup');
-                            }
-                        
-                            // Function to toggle the architecture selection popup for Alpha App
-                            function toggleAlphaArchitecturePopup() {
-                                fetchReleaseInfo(); // Fetch Alpha release info
-                                togglePopup('architecturePopup');
-                            }
-                        
-                            // Function to toggle any popup by ID
-                            function togglePopup(popupId) {
-                                const popup = document.getElementById(popupId);
-                                if (popup.style.display === 'none') {
-                                    closeCurrentPopup(); // Close current popup if any
-                                    popup.style.display = 'block'; // Open new popup
-                                    currentPopup = popup;
-                                } else {
-                                    popup.style.display = 'none'; // Close popup if already open
-                                    currentPopup = null;
-                                }
-                            }
-                        
-                            // Function to close the current popup
-                            function closeCurrentPopup() {
-                                if (currentPopup) {
-                                    currentPopup.style.display = 'none';
-                                    currentPopup = null;
-                                }
-                            }
-                        
-                            // Function to fetch release information for Universal App from GitHub API
-                            async function fetchUniversalReleaseInfo() {
-                                const repo = 'rebelonion/Dantotsu'; // GitHub repository owner and name
-                                const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
-                        
-                                try {
-                                    const response = await fetch(apiUrl);
-                                    const data = await response.json();
-                        
-                                    if (response.ok) {
-                                        // Update release notes
-                                        document.getElementById('universalReleaseNotes').textContent = data.body;
-                                        // Truncate release notes to 5 lines initially
-                                        truncateReleaseNotes('universalReleaseNotes');
-                                        updateUniversalArchitectureButtons(data.assets);
-                                        // Add last update timestamp
-                const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
-                document.getElementById('universalLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
-                                    } else {
-                                        console.error('Failed to fetch release information:', data.message);
-                                    }
-                                } catch (error) {
-                                    console.error('Error fetching release information:', error);
-                                }
-                            }
-
-                            // Function to redirect to the download link for the Alpha APK
-    function redirectToUniversalApkDownload(downloadUrl) {
-        // Check if the download URL is provided
-        if (downloadUrl) {
-            // Open the download link in a new tab
-            window.open(downloadUrl, '_blank');
-        } else {
-            // Notify the user if the download link is not available
-            alert('Download link is not available.');
-        }
-    }
-                        
-                            // Function to fetch release information for Beta App from GitHub API
-                            async function fetchBetaReleaseInfo() {
-                                const repo = 'rebelonion/Dantotsu'; // GitHub repository owner and name
-                                const apiUrl = `https://api.github.com/repos/${repo}/releases`;
-                        
-                                try {
-                                    const response = await fetch(apiUrl);
-                                    const data = await response.json();
-                        
-                                    if (response.ok) {
-                                        // Filter out releases with "beta" in their name
-                                        const betaRelease = data.find(release => release.name.toLowerCase().includes('beta'));
-                                        
-                                        if (betaRelease) {
-                                            // Update release notes
-                                            document.getElementById('betaReleaseNotes').textContent = betaRelease.body;
-                                            // Truncate release notes to 5 lines initially
-                                            truncateReleaseNotes('betaReleaseNotes');
-                                            updateBetaArchitectureButtons(betaRelease.assets);
-                                            // Add last update timestamp
-                const lastUpdateTimestamp = new Date(betaRelease.published_at).toISOString(); // Use betaRelease's timestamp
-                document.getElementById('betaLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
-                                        } else {
-                                            console.error('No beta release found.');
-                                            alert('No beta release found.');
-                                        }
-                                    } else {
-                                        console.error('Failed to fetch release information from GitHub.');
-                                        alert('Failed to fetch release information from GitHub.');
-                                    }
-                                } catch (error) {
-                                    console.error('Error fetching beta release information:', error);
-                                    alert('Error fetching beta release information from GitHub.');
-                                }
-                            }
-
-                            // Function to redirect to the download link for the Alpha APK
-    function redirectToBetaApkDownload(downloadUrl) {
-        // Check if the download URL is provided
-        if (downloadUrl) {
-            // Open the download link in a new tab
-            window.open(downloadUrl, '_blank');
-        } else {
-            // Notify the user if the download link is not available
-            alert('Download link is not available.');
-        }
-    }
-                        
-                            // Function to fetch release information for Alpha App from GitHub API
-                            async function fetchReleaseInfo() {
-                                const repo = 'kaorlol/dantotsu-updater'; // GitHub repository owner and name
-                                const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
-                        
-                                try {
-                                    const response = await fetch(apiUrl);
-                                    const data = await response.json();
-                        
-                                    if (response.ok) {
-                                        // Update release notes
-                                        document.getElementById('alphaReleaseNotes').textContent = data.body;
-                                        // Truncate release notes to 5 lines initially
-                                        truncateReleaseNotes('alphaReleaseNotes');
-                                        updateArchitectureButtons(data.assets);
-                                        // Add last update timestamp
-                const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
-                document.getElementById('alphaLastUpdate').innerHTML = `Last update: <time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
-                                    } else {
-                                        console.error('Failed to fetch release information:', data.message);
-                                    }
-                                } catch (error) {
-                                    console.error('Error fetching release information:', error);
-                                }
-                            }
-
-                            // Function to format timestamp in human-readable format
-    function formatTimestamp(timestamp) {
-        const currentDate = new Date();
-        const lastUpdateDate = new Date(timestamp); // Use provided timestamp
-        const diff = Math.floor((currentDate - lastUpdateDate) / 1000); // Difference in seconds
-
-        if (diff < 60) {
-            return 'just now';
-        } else if (diff < 3600) {
-            const minutes = Math.floor(diff / 60);
-            return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-        } else if (diff < 86400) {
-            const hours = Math.floor(diff / 3600);
-            return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-        } else {
-            const days = Math.floor(diff / 86400);
-            return `${days} day${days > 1 ? 's' : ''} ago`;
-        }
-    }
-
-    // Call fetch function to load release information
-    fetchReleaseInfo();
-    fetchUniversalReleaseInfo();
-    fetchBetaReleaseInfo();
-
-                            // Function to redirect to the download link for the Alpha APK
-    function redirectToApkDownload(downloadUrl) {
-        // Check if the download URL is provided
-        if (downloadUrl) {
-            // Open the download link in a new tab
-            window.open(downloadUrl, '_blank');
-        } else {
-            // Notify the user if the download link is not available
-            alert('Download link is not available.');
-        }
-    }
-                        
-                            // Function to update architecture buttons for Universal App with file sizes and download icons
-                            function updateUniversalArchitectureButtons(assets) {
-                                const universalArchitectureList = document.getElementById('universalArchitectureList');
-                                universalArchitectureList.innerHTML = ''; // Clear existing buttons
-                        
-                                assets.forEach(asset => {
-                                    const architecture = asset.name.split('.')[0]; // Extract architecture from file name
-                                    const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
-                                    const listItem = document.createElement('li');
-                                    listItem.classList.add('text-center'); // Align content center
-                                    const dot = document.createElement('span');
-                                    dot.textContent = '\u2022 '; // Unicode character for bullet point
-                                    listItem.appendChild(dot);
-                                    const button = document.createElement('button');
-                                    button.textContent = `${architecture} (${fileSize} MB)`;
-                                    button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
-                                    button.onclick = () => redirectToUniversalApkDownload(asset.browser_download_url); // Use browser download URL
-                                    const downloadIcon = document.createElement('i');
-                                    downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
-                                    button.appendChild(downloadIcon); // Adding download icon
-                                    listItem.appendChild(button);
-                                    universalArchitectureList.appendChild(listItem);
-                                });
-                            }
-                        
-                            // Function to update architecture buttons for Beta App with file sizes and download icons
-                            function updateBetaArchitectureButtons(assets) {
-                                const betaArchitectureList = document.getElementById('betaArchitectureList');
-                                betaArchitectureList.innerHTML = ''; // Clear existing buttons
-                        
-                                assets.forEach(asset => {
-                                    const architecture = asset.name.split('.')[0]; // Extract architecture from file name
-                                    const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
-                                    const listItem = document.createElement('li');
-                                    listItem.classList.add('text-center'); // Align content center
-                                    const dot = document.createElement('span');
-                                    dot.textContent = '\u2022 '; // Unicode character for bullet point
-                                    listItem.appendChild(dot);
-                                    const button = document.createElement('button');
-                                    button.textContent = `${architecture} (${fileSize} MB)`;
-                                    button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
-                                    button.onclick = () => redirectToBetaApkDownload(asset.browser_download_url); // Use browser download URL
-                                    const downloadIcon = document.createElement('i');
-                                    downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
-                                    button.appendChild(downloadIcon); // Adding download icon
-                                    listItem.appendChild(button);
-                                    betaArchitectureList.appendChild(listItem);
-                                });
-                            }
-                        
-                            // Function to update architecture buttons for Alpha App with file sizes and download icons
-                            function updateArchitectureButtons(assets) {
-                                const architectureList = document.getElementById('architectureList');
-                                architectureList.innerHTML = ''; // Clear existing buttons
-                        
-                                assets.forEach(asset => {
-                                    const architecture = asset.name.split('.')[0]; // Extract architecture from file name
-                                    const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
-                                    const listItem = document.createElement('li');
-                                    listItem.classList.add('text-center'); // Align content center
-                                    const dot = document.createElement('span');
-                                    dot.textContent = '\u2022 '; // Unicode character for bullet point
-                                    listItem.appendChild(dot);
-                                    const button = document.createElement('button');
-                                    button.textContent = `${architecture} (${fileSize} MB)`;
-                                    button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
-                                    button.onclick = () => redirectToApkDownload(asset.browser_download_url); // Use browser download URL
-                                    const downloadIcon = document.createElement('i');
-                                    downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
-                                    button.appendChild(downloadIcon); // Adding download icon
-                                    listItem.appendChild(button);
-                                    architectureList.appendChild(listItem);
-                                });
-                            }
-                        
-                            // Function to truncate release notes to 5 lines
-                            function truncateReleaseNotes(elementId) {
-                                const releaseNotes = document.getElementById(elementId);
-                                const lines = releaseNotes.textContent.split('\n');
-                                if (lines.length > 10) {
-                                    releaseNotes.textContent = lines.slice(0, 10).join('\n') + '...';
-                                }
-                            }
-
-                            // Function to close the architecture selection popup for Universal App
-                            function closeUniversalArchitecturePopup() {
-                                const universalArchitecturePopup = document.getElementById('universalArchitecturePopup');
-                                universalArchitecturePopup.style.display = 'none';
-                            }
-
-                            // Function to close the architecture selection popup for Beta App
-                            function closeBetaArchitecturePopup() {
-                                const BetaArchitecturePopup = document.getElementById('betaArchitecturePopup');
-                                betaArchitecturePopup.style.display = 'none';
-                            }
-
-                            // Function to close the architecture selection popup for Alpha App
-                            function closeArchitecturePopup() {
-                                const architecturePopup = document.getElementById('architecturePopup');
-                                architecturePopup.style.display = 'none';
-                            }
-                        
-                            // Function to toggle the information popup
-                            function toggleInfoPopup() {
-                                const infoPopup = document.getElementById('infoPopup');
-                                const architecturePopup = document.getElementById('architecturePopup');
-                                if (infoPopup.style.display === 'none') {
-                                    infoPopup.style.display = 'block';
-                                    architecturePopup.style.display = 'none'; // Hide architecture popup
-                                } else {
-                                    infoPopup.style.display = 'none';
-                                    architecturePopup.style.display = 'block'; // Show architecture popup
-                                }
-                            }
-                        
-                            // Function to view full changelogs of universal
-                        function viewFullChangelogs(app) {
-                            let url;
-                            switch (app) {
-                                case 'universal':
-                                    url = 'https://github.com/rebelonion/Dantotsu/releases/latest';
-                                    break;
-                                case 'beta':
-                                    fetchFullBetaChangelogs();
-                                    return;
-                                case 'alpha':
-                                    url = 'https://github.com/kaorlol/dantotsu-updater/releases';
-                                    break;
-                                default:
-                                    return;
-                            }
-                            window.open(url, '_blank');
-                        }
-                        
-                        // Function to fetch full changelogs of beta
-                        async function fetchFullBetaChangelogs() {
-                            const apiUrl = 'https://api.github.com/repos/rebelonion/Dantotsu/releases';
-                        
-                            try {
-                                const response = await fetch(apiUrl);
-                                if (!response.ok) throw new Error('Failed to fetch release information');
-                        
-                                const data = await response.json();
-                                const betaRelease = data.find(release => release.name.toLowerCase().includes('beta'));
-                        
-                                if (betaRelease) {
-                                    window.open(betaRelease.html_url, '_blank');
-                                } else {
-                                    console.error('No beta release found.');
-                                    alert('No beta release found.');
-                                }
-                            } catch (error) {
-                                console.error('Error fetching beta release information:', error);
-                                alert('Error fetching beta release information from GitHub.');
-                            }
-                        }
-                        </script>
-                        <br>
-
-                        <!-- View extentions -->
-                        <a href="https://aniyomi.org/extensions/" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Extensions</a>
-
-                        <!-- View versions -->
-                        <a href="https://github.com/rebelonion/Dantotsu/releases" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Versions</a>
-
+      <div class="container h-full mx-auto flex flex-col justify-center items-center relative z-10">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold" data-lang="en">Installation</h1> &nbsp; <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM">
+              <b>Discord <b>
+            </a> or <a href="https://t.me/+gzBCQExtLQo1YTNh">
+              <b>Telegram <a></a>
+                <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
+                  <!-- Download button for Universal app -->
+                  <div class="mb-4">
+                    <button id="downloadButton1" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-7 rounded-full transition-colors" onclick="toggleUniversalArchitecturePopup()">DOWNLOAD STABLE RELEASE</button>
+                  </div>
+                  <!-- Universal Architecture selection popup -->
+                  <div id="universalArchitecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeUniversalArchitecturePopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Release Notes -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Stable Release?</h2>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <p id="universalReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- View Full Changelogs button -->
+                    <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('universal')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                    <!-- Last updated timestamp for Beta -->
+                    <p id="universalLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <!-- Title -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
+                    <!-- Architecture options -->
+                    <ul class="space-y-2" id="universalArchitectureList">
+                      <!-- Architecture options will be dynamically added here -->
+                    </ul>
+                  </div>
+                  <!-- Download button for Beta app -->
+                  <div class="mb-4">
+                    <button id="downloadButton2" class="text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold" onclick="toggleBetaArchitecturePopup()">DOWNLOAD BETA RELEASE</button>
+                  </div>
+                  <!-- Beta Architecture selection popup -->
+                  <div id="betaArchitecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeBetaArchitecturePopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Release Notes -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Beta Release?</h2>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <p id="betaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- View Full Changelogs button -->
+                    <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('beta')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                    <!-- Last updated timestamp for Beta -->
+                    <p id="betaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <!-- Title -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
+                    <!-- Architecture options -->
+                    <ul class="space-y-2" id="betaArchitectureList">
+                      <!-- Architecture options will be dynamically added here -->
+                    </ul>
+                  </div>
+                  <!-- Download button for Alpha app -->
+                  <div>
+                    <button id="downloadButton3" class="text-white bg-gradient-to-r from-red-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-3 px-10 font-bold" onclick="toggleAlphaArchitecturePopup()">DOWNLOAD ALPHA RELEASE</button>
+                  </div>
+                  <!-- Alpha Architecture selection popup -->
+                  <div id="architecturePopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeArchitecturePopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Release Notes -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">What's New On Alpha Release?</h2>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <p id="alphaReleaseNotes" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- View Full Changelogs button -->
+                    <button class="text-blue-500 hover:underline text-sm mb-2" onclick="viewFullChangelogs('alpha')" style="font-family: Arial, sans-serif; font-size: 10px;">View All Changelogs</button>
+                    <!-- Last updated timestamp for Alpha -->
+                    <p id="alphaLastUpdate" class="text-xs mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;"></p>
+                    <!-- Transparent Line -->
+                    <div style="border-bottom: 1px solid #32373e; margin-bottom: 10px;"></div>
+                    <!-- Title -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Download</h2>
+                    <!-- Architecture options -->
+                    <ul class="space-y-2" id="architectureList">
+                      <!-- Architecture options will be dynamically added here -->
+                    </ul>
+                    <!-- Information link -->
+                    <div class="text-center mt-4">
+                      <a href="#" onclick="toggleInfoPopup()" class="text-blue-500 hover:underline text-sm" style="font-family: Arial, sans-serif; font-size: 10px;">ⓘ Click For Info On Architecture</a>
                     </div>
+                  </div>
+                  <!-- Information popup -->
+                  <div id="infoPopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(40% + 3px); left: 50%; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 left-2 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="toggleInfoPopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Information text -->
+                    <div class="text-xs">
+                      <p class="mb-1">
+                        <strong>
+                          <u>ARM64-v8a</u> • </strong>
+                        <i>Newer devices (post-2016)</i>
+                      </p>
+                      <p class="mb-1">
+                        <strong>
+                          <u>armeabi-v7a</u> • </strong>
+                        <i>Older or budget devices (pre-2016)</i>
+                      </p>
+                      <p class="mb-1">
+                        <strong>
+                          <u>x86</u> • </strong>
+                        <i>Some tablets with Intel processors</i>
+                      </p>
+                      <p class="mb-1">
+                        <strong>
+                          <u>x86_64</u> • </strong>
+                        <i>Newer tablets with 64-bit Intel processors</i>
+                      </p>
+                      <br>
+                      <p class="mb-1">
+                        <strong>
+                          <u>To check:</u>
+                        </strong>
+                      </p>
+                      <p class="mb-1">
+                        <strong>
+                          <u>App</u> • </strong>
+                        <i>Use "CPU-Z" or "Droid Hardware Info" from Google Play</i>
+                      </p>
+                      <p class="mb-1">
+                        <strong>
+                          <u>Online</u> • </strong>
+                        <i>Check the manufacturer's website or tech review sites</i>
+                      </p>
+                    </div>
+                  </div>
+                  <style>
+                    .popup {
+                      border: 0px solid white;
+                    }
+                  </style>
+                  <script>
+                    let currentPopup = null;
+                    // Function to toggle the architecture selection popup for Universal App
+                    function toggleUniversalArchitecturePopup() {
+                      fetchUniversalReleaseInfo(); // Fetch Universal release info
+                      togglePopup('universalArchitecturePopup');
+                    }
+                    // Function to toggle the architecture selection popup for Beta App
+                    function toggleBetaArchitecturePopup() {
+                      fetchBetaReleaseInfo(); // Fetch Beta release info
+                      togglePopup('betaArchitecturePopup');
+                    }
+                    // Function to toggle the architecture selection popup for Alpha App
+                    function toggleAlphaArchitecturePopup() {
+                      fetchReleaseInfo(); // Fetch Alpha release info
+                      togglePopup('architecturePopup');
+                    }
+                    // Function to toggle any popup by ID
+                    function togglePopup(popupId) {
+                      const popup = document.getElementById(popupId);
+                      if (popup.style.display === 'none') {
+                        closeCurrentPopup(); // Close current popup if any
+                        popup.style.display = 'block'; // Open new popup
+                        currentPopup = popup;
+                      } else {
+                        popup.style.display = 'none'; // Close popup if already open
+                        currentPopup = null;
+                      }
+                    }
+                    // Function to close the current popup
+                    function closeCurrentPopup() {
+                      if (currentPopup) {
+                        currentPopup.style.display = 'none';
+                        currentPopup = null;
+                      }
+                    }
+                    // Function to fetch release information for Universal App from GitHub API
+                    async function fetchUniversalReleaseInfo() {
+                      const repo = 'rebelonion/Dantotsu'; // GitHub repository owner and name
+                      const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
+                      try {
+                        const response = await fetch(apiUrl);
+                        const data = await response.json();
+                        if (response.ok) {
+                          // Update release notes
+                          document.getElementById('universalReleaseNotes').textContent = data.body;
+                          // Truncate release notes to 5 lines initially
+                          truncateReleaseNotes('universalReleaseNotes');
+                          updateUniversalArchitectureButtons(data.assets);
+                          // Add last update timestamp
+                          const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
+                          document.getElementById('universalLastUpdate').innerHTML = `Last update: 
+																																			<time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
+                        } else {
+                          console.error('Failed to fetch release information:', data.message);
+                        }
+                      } catch (error) {
+                        console.error('Error fetching release information:', error);
+                      }
+                    }
+                    // Function to redirect to the download link for the Alpha APK
+                    function redirectToUniversalApkDownload(downloadUrl) {
+                      // Check if the download URL is provided
+                      if (downloadUrl) {
+                        // Open the download link in a new tab
+                        window.open(downloadUrl, '_blank');
+                      } else {
+                        // Notify the user if the download link is not available
+                        alert('Download link is not available.');
+                      }
+                    }
+                    // Function to fetch release information for Beta App from GitHub API
+                    async function fetchBetaReleaseInfo() {
+                      const repo = 'rebelonion/Dantotsu'; // GitHub repository owner and name
+                      const apiUrl = `https://api.github.com/repos/${repo}/releases`;
+                      try {
+                        const response = await fetch(apiUrl);
+                        const data = await response.json();
+                        if (response.ok) {
+                          // Filter out releases with "beta" in their name
+                          const betaRelease = data.find(release => release.name.toLowerCase().includes('beta'));
+                          if (betaRelease) {
+                            // Update release notes
+                            document.getElementById('betaReleaseNotes').textContent = betaRelease.body;
+                            // Truncate release notes to 5 lines initially
+                            truncateReleaseNotes('betaReleaseNotes');
+                            updateBetaArchitectureButtons(betaRelease.assets);
+                            // Add last update timestamp
+                            const lastUpdateTimestamp = new Date(betaRelease.published_at).toISOString(); // Use betaRelease's timestamp
+                            document.getElementById('betaLastUpdate').innerHTML = `Last update: 
+																																			<time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
+                          } else {
+                            console.error('No beta release found.');
+                            alert('No beta release found.');
+                          }
+                        } else {
+                          console.error('Failed to fetch release information from GitHub.');
+                          alert('Failed to fetch release information from GitHub.');
+                        }
+                      } catch (error) {
+                        console.error('Error fetching beta release information:', error);
+                        alert('Error fetching beta release information from GitHub.');
+                      }
+                    }
+                    // Function to redirect to the download link for the Beta APK
+                    function redirectToBetaApkDownload(downloadUrl) {
+                      // Check if the download URL is provided
+                      if (downloadUrl) {
+                        // Open the download link in a new tab
+                        window.open(downloadUrl, '_blank');
+                      } else {
+                        // Notify the user if the download link is not available
+                        alert('Download link is not available.');
+                      }
+                    }
+                    // Function to fetch release information for Alpha App from GitHub API
+                    async function fetchReleaseInfo() {
+                      const repo = 'kaorlol/dantotsu-updater'; // GitHub repository owner and name
+                      const apiUrl = `https://api.github.com/repos/${repo}/releases/latest`;
+                      try {
+                        const response = await fetch(apiUrl);
+                        const data = await response.json();
+                        if (response.ok) {
+                          // Update release notes
+                          document.getElementById('alphaReleaseNotes').textContent = data.body;
+                          // Truncate release notes to 5 lines initially
+                          truncateReleaseNotes('alphaReleaseNotes');
+                          updateArchitectureButtons(data.assets);
+                          // Add last update timestamp
+                          const lastUpdateTimestamp = new Date(data.published_at).toISOString(); // Convert to ISO string
+                          document.getElementById('alphaLastUpdate').innerHTML = `Last update: 
+																																			<time datetime="${lastUpdateTimestamp}">${formatTimestamp(lastUpdateTimestamp)}</time>`;
+                        } else {
+                          console.error('Failed to fetch release information:', data.message);
+                        }
+                      } catch (error) {
+                        console.error('Error fetching release information:', error);
+                      }
+                    }
+                    // Function to format timestamp in human-readable format
+                    function formatTimestamp(timestamp) {
+                      const currentDate = new Date();
+                      const lastUpdateDate = new Date(timestamp); // Use provided timestamp
+                      const diff = Math.floor((currentDate - lastUpdateDate) / 1000); // Difference in seconds
+                      if (diff < 60) {
+                        return 'just now';
+                      } else if (diff < 3600) {
+                        const minutes = Math.floor(diff / 60);
+                        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+                      } else if (diff < 86400) {
+                        const hours = Math.floor(diff / 3600);
+                        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+                      } else {
+                        const days = Math.floor(diff / 86400);
+                        return `${days} day${days > 1 ? 's' : ''} ago`;
+                      }
+                    }
+                    // Call fetch function to load release information
+                    fetchReleaseInfo();
+                    fetchUniversalReleaseInfo();
+                    fetchBetaReleaseInfo();
+                    // Function to redirect to the download link for the Alpha APK
+                    function redirectToApkDownload(downloadUrl) {
+                      // Check if the download URL is provided
+                      if (downloadUrl) {
+                        // Open the download link in a new tab
+                        window.open(downloadUrl, '_blank');
+                      } else {
+                        // Notify the user if the download link is not available
+                        alert('Download link is not available.');
+                      }
+                    }
+                    // Function to update architecture buttons for Universal App with file sizes and download icons
+                    function updateUniversalArchitectureButtons(assets) {
+                      const universalArchitectureList = document.getElementById('universalArchitectureList');
+                      universalArchitectureList.innerHTML = ''; // Clear existing buttons
+                      assets.forEach(asset => {
+                        const architecture = asset.name.split('.')[0]; // Extract architecture from file name
+                        const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('text-center'); // Align content center
+                        const dot = document.createElement('span');
+                        dot.textContent = '\u2022 '; // Unicode character for bullet point
+                        listItem.appendChild(dot);
+                        const button = document.createElement('button');
+                        button.textContent = `${architecture} (${fileSize} MB)`;
+                        button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
+                        button.onclick = () => redirectToUniversalApkDownload(asset.browser_download_url); // Use browser download URL
+                        const downloadIcon = document.createElement('i');
+                        downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
+                        button.appendChild(downloadIcon); // Adding download icon
+                        listItem.appendChild(button);
+                        universalArchitectureList.appendChild(listItem);
+                      });
+                    }
+                    // Function to update architecture buttons for Beta App with file sizes and download icons
+                    function updateBetaArchitectureButtons(assets) {
+                      const betaArchitectureList = document.getElementById('betaArchitectureList');
+                      betaArchitectureList.innerHTML = ''; // Clear existing buttons
+                      assets.forEach(asset => {
+                        const architecture = asset.name.split('.')[0]; // Extract architecture from file name
+                        const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('text-center'); // Align content center
+                        const dot = document.createElement('span');
+                        dot.textContent = '\u2022 '; // Unicode character for bullet point
+                        listItem.appendChild(dot);
+                        const button = document.createElement('button');
+                        button.textContent = `${architecture} (${fileSize} MB)`;
+                        button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
+                        button.onclick = () => redirectToBetaApkDownload(asset.browser_download_url); // Use browser download URL
+                        const downloadIcon = document.createElement('i');
+                        downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
+                        button.appendChild(downloadIcon); // Adding download icon
+                        listItem.appendChild(button);
+                        betaArchitectureList.appendChild(listItem);
+                      });
+                    }
+                    // Function to update architecture buttons for Alpha App with file sizes and download icons
+                    function updateArchitectureButtons(assets) {
+                      const architectureList = document.getElementById('architectureList');
+                      architectureList.innerHTML = ''; // Clear existing buttons
+                      assets.forEach(asset => {
+                        const architecture = asset.name.split('.')[0]; // Extract architecture from file name
+                        const fileSize = (asset.size / (1024 * 1024)).toFixed(2); // Convert bytes to MB
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('text-center'); // Align content center
+                        const dot = document.createElement('span');
+                        dot.textContent = '\u2022 '; // Unicode character for bullet point
+                        listItem.appendChild(dot);
+                        const button = document.createElement('button');
+                        button.textContent = `${architecture} (${fileSize} MB)`;
+                        button.classList.add('text-base', 'font-normal', 'hover:underline', 'focus:outline-none', 'focus:ring', 'rounded-md', 'py-1');
+                        button.onclick = () => redirectToApkDownload(asset.browser_download_url); // Use browser download URL
+                        const downloadIcon = document.createElement('i');
+                        downloadIcon.className = 'fa fa-download ml-2'; // Adding downloading icon
+                        button.appendChild(downloadIcon); // Adding download icon
+                        listItem.appendChild(button);
+                        architectureList.appendChild(listItem);
+                      });
+                    }
+                    // Function to truncate release notes to 5 lines
+                    function truncateReleaseNotes(elementId) {
+                      const releaseNotes = document.getElementById(elementId);
+                      const lines = releaseNotes.textContent.split('\n');
+                      if (lines.length > 10) {
+                        releaseNotes.textContent = lines.slice(0, 10).join('\n') + '...';
+                      }
+                    }
+                    // Function to close the architecture selection popup for Universal App
+                    function closeUniversalArchitecturePopup() {
+                      const universalArchitecturePopup = document.getElementById('universalArchitecturePopup');
+                      universalArchitecturePopup.style.display = 'none';
+                    }
+                    // Function to close the architecture selection popup for Beta App
+                    function closeBetaArchitecturePopup() {
+                      const BetaArchitecturePopup = document.getElementById('betaArchitecturePopup');
+                      betaArchitecturePopup.style.display = 'none';
+                    }
+                    // Function to close the architecture selection popup for Alpha App
+                    function closeArchitecturePopup() {
+                      const architecturePopup = document.getElementById('architecturePopup');
+                      architecturePopup.style.display = 'none';
+                    }
+                    // Function to toggle the information popup
+                    function toggleInfoPopup() {
+                      const infoPopup = document.getElementById('infoPopup');
+                      const architecturePopup = document.getElementById('architecturePopup');
+                      if (infoPopup.style.display === 'none') {
+                        infoPopup.style.display = 'block';
+                        architecturePopup.style.display = 'none'; // Hide architecture popup
+                      } else {
+                        infoPopup.style.display = 'none';
+                        architecturePopup.style.display = 'block'; // Show architecture popup
+                      }
+                    }
+                    // Function to view full changelogs of universal
+                    function viewFullChangelogs(app) {
+                      let url;
+                      switch (app) {
+                        case 'universal':
+                          url = 'https://github.com/rebelonion/Dantotsu/releases/latest';
+                          break;
+                        case 'beta':
+                          fetchFullBetaChangelogs();
+                          return;
+                        case 'alpha':
+                          url = 'https://github.com/kaorlol/dantotsu-updater/releases';
+                          break;
+                        default:
+                          return;
+                      }
+                      window.open(url, '_blank');
+                    }
+                    // Function to fetch full changelogs of beta
+                    async function fetchFullBetaChangelogs() {
+                      const apiUrl = 'https://api.github.com/repos/rebelonion/Dantotsu/releases';
+                      try {
+                        const response = await fetch(apiUrl);
+                        if (!response.ok) throw new Error('Failed to fetch release information');
+                        const data = await response.json();
+                        const betaRelease = data.find(release => release.name.toLowerCase().includes('beta'));
+                        if (betaRelease) {
+                          window.open(betaRelease.html_url, '_blank');
+                        } else {
+                          console.error('No beta release found.');
+                          alert('No beta release found.');
+                        }
+                      } catch (error) {
+                        console.error('Error fetching beta release information:', error);
+                        alert('Error fetching beta release information from GitHub.');
+                      }
+                    }
+                  </script>
+                  <br>
+                  <!-- Extension button with Easter egg -->
+                  <a href="#" onclick="checkEasterEgg()" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Extensions</a>
+                  <!-- Easter egg popup for the unlucky user -->
+                  <div id="easterEggPopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(50% - 60px); left: 50%; height:250px; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeEasterEggPopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Easter egg content -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">You know about the r4 right?</h2>
+                    <br>
+                    <p class="text-sm mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;">Suggesting can overload extensions, which could result in ban</p>
+                    <br>
+                    <p class="text-sm mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;">And You Still Wanna Proceed? 🤨</p>
+                    <div class="flex justify-center">
+                      <!-- Yes button -->
+                      <button class="text-white bg-gradient-to-r from-red-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold mr-2 text-sm" onclick="showSecondPopup()">Yes</button>
+                      <!-- No button -->
+                      <button class="text-white bg-green-500 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold text-sm" onclick="closeEasterEggPopup()">No</button>
+                    </div>
+                  </div>
+                  <!-- Second popup for confirmation -->
+                  <div id="confirmationPopup" style="display: none; width: 315px; padding-bottom: 20px; top:calc(50% - 60px); left: 50%; height:250px; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeSecondPopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Confirmation content -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">You Should Also Remember</h2>
+                    <br>
+                    <p class="text-sm mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;">Avoid third-party repositories; they're unsupported, insecure, and not affiliated with us in any way.</p>
+                    <p class="text-sm mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;">And you still wanna proceed? Huh!🤦‍♂️</p>
+                    <div class="flex justify-center">
+                      <!-- Yes button -->
+                      <button class="text-white bg-gradient-to-r from-red-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold mr-2 text-sm" onclick="showFinalConfirmationPopup()">Yes</button>
+                      <!-- No button -->
+                      <button class="text-white bg-green-500 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold text-sm" onclick="closeSecondPopup()">No</button>
+                    </div>
+                  </div>
+                  <!-- Final Confirmation Popup -->
+                  <div id="finalConfirmationPopup" style="display: none; width: 315px; padding-bottom: 20px; top: calc(50% - 60px); left: 50%; height:250px; transform: translateX(-50%); background-color: #212126;" class="rounded-md absolute z-10 bg-opacity-75 p-4 popup">
+                    <!-- Close button -->
+                    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="closeFinalConfirmationPopup()">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <br>
+                    <!-- Final Confirmation content -->
+                    <h2 class="text-lg font-semibold mb-1" style="font-family: Arial, sans-serif; font-size: 14px;">Okay this is the Final Warning!!</h2>
+                    <br>
+                    <p class="text-sm mb-2" style="font-family: 'Roboto', sans-serif; font-weight: normal;">There is no going Back now 🙅‍♂️</p>
+                    <br>
+                    <div class="flex justify-center">
+                      <!-- Yes button -->
+                      <a href="https://aniyomi.org/extensions/" class="text-white bg-gradient-to-r from-red-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold mr-2 text-sm">Lessgo!</a>
+                      <!-- No button -->
+                      <button class="text-white bg-green-500 hover:bg-green-400 focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-full py-2 px-8 font-bold text-sm" onclick="closeFinalConfirmationPopup()">Im Out</button>
+                    </div>
+                  </div>
+                  <script>
+                    let unluckyUser = Math.floor(Math.random() * 100); // Generate a random number between 0 and 499
+                    function checkEasterEgg() {
+                      if (unluckyUser === 0) { // Check if the user is unlucky
+                        toggleEasterEggPopup(); // If unlucky, show the Easter egg popup
+                      } else {
+                        window.location.href = "https://aniyomi.org/extensions/"; // If not unlucky, proceed to the extensions page
+                      }
+                    }
 
-            </div>
+                    function toggleEasterEggPopup() {
+                      const popup = document.getElementById('easterEggPopup');
+                      popup.style.display = 'block';
+                      currentPopup = popup;
+                    }
+
+                    function showSecondPopup() {
+                      const firstPopup = document.getElementById('easterEggPopup');
+                      const secondPopup = document.getElementById('confirmationPopup');
+                      firstPopup.style.display = 'none';
+                      secondPopup.style.display = 'block';
+                      currentPopup = secondPopup;
+                    }
+
+                    function closeEasterEggPopup() {
+                      const popup = document.getElementById('easterEggPopup');
+                      popup.style.display = 'none';
+                      currentPopup = null;
+                    }
+
+                    function closeSecondPopup() {
+                      const popup = document.getElementById('confirmationPopup');
+                      popup.style.display = 'none';
+                      currentPopup = null;
+                    }
+
+                    function showFinalConfirmationPopup() {
+                      const secondPopup = document.getElementById('confirmationPopup');
+                      const finalPopup = document.getElementById('finalConfirmationPopup');
+                      secondPopup.style.display = 'none';
+                      finalPopup.style.display = 'block';
+                      currentPopup = finalPopup;
+                    }
+
+                    function closeFinalConfirmationPopup() {
+                      const popup = document.getElementById('finalConfirmationPopup');
+                      popup.style.display = 'none';
+                      currentPopup = null;
+                    }
+                  </script>
+                  <!-- View versions -->
+                  <a href="https://github.com/rebelonion/Dantotsu/releases" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Versions</a>
+                </div>
         </div>
-        </div>
-        <div id="opbg" class="absolute inset-0 bg-black bg-opacity-80 transition-colors"></div>
+      </div>
+      </div>
+      <div id="opbg" class="absolute inset-0 bg-black bg-opacity-80 transition-colors"></div>
     </section>
-
-    <!-- Staff Showcase Popup -->
     <div id="staffPopup" class="fixed inset-0 z-50 flex items-center justify-center hidden rounded-md">
-        <div class="bg-slate-800 p-4 md:mx-4 rounded-lg shadow-lg w-full md:w-auto max-h-[80vh] overflow-y-auto">
-            <div class="text-right">
-                <button id="closePopup" class="text-white hover:text-gray-500 text-xl p-4"><i class="fa-solid fa-times"></i></button>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="images/Discordpfps/rebelonion.png" alt="Rebel Union" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Rebel Onion</p>
-                    <p class="text-gray-500">Creator of Dantotsu</p>
-                    <!-- social icons-->
-                    <div class="flex items-center mt-4">
-                        <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-solid fa-mug-saucer"></i></a>
-                        <a href="https://www.github.com/rebelonion" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://discordapp.com/users/714249925248024617" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="images/Discordpfps/waiwaht.png" alt="Wai What" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Wai What</p>
-                    <p class="text-gray-500">Creator of Dantotsu's Branding</p>
-                    <div class="flex items-center mt-4">
-                        <a href="https://github.com/WaiWhat" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://discordapp.com/users/928202695611908126" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="images/Discordpfps/neko.png" alt="Neko404" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Neko404</p>
-                    <p class="text-gray-500">Main Web Dev</p>
-                    <p class="text-gray-500">If the world knew that I have the source code to the universe, they would give me all the cookies, hehe.</p>
-                    <div class="flex items-center mt-4">
-                        <a href="https://github.com/MarshMeadow?tab=repositories" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://ko-fi.com/marshmeadow" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-solid fa-mug-saucer"></i></a>
-                        <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500"><i
-            class="fa-brands fa-telegram" width="60" height="60"></i></a>
-                        <a href="https://discordapp.com/users/1028088462508839035" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="https://cdn.discordapp.com/avatars/875096438936338493/bd7fd12c326486d9848bf04d6c1903b8.png?size=1024" alt="arifalam" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Arif Alam</p>
-                    <p class="text-gray-500">Contributor of Dantotsu Website / Discord Moderator.</p>
-                    <div class="flex items-center mt-4">
-                        <a href="https://github.com/ARIF683" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://discordapp.com/users/875096438936338493" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="images/Discordpfps/ayodaza.png" alt="Ayodaza" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Ayodaza</p>
-                    <p class="text-gray-500">Main Web Dev / Website's Concept Designer</p>
-                    <div class="flex items-center mt-4">
-                        <a href="https://github.com/dazadev" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://twitter.com/ayodaza" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-twitter"></i></a>
-                        <a href="https://discordapp.com/users/755280247494148199" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-                <div class="bg-slate-900 p-4 rounded-lg shadow-md">
-                    <img src="images/Discordpfps/aayum.jpg" alt="aayush262" class="w-20 h-20 rounded-full mb-2">
-                    <p class="text-lg text-purple-600 font-bold mb-2">Aayush262</p>
-                    <p class="text-gray-500">Screenshot Provider</p>
-                    <div class="flex items-center mt-4">
-                        <a href="https://github.com/aayush2622" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-github"></i></a>
-                        <a href="https://discordapp.com/users/918825160654598224" class="mr-4 text-white hover:text-purple-500"><i
-                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
+      <div class="bg-slate-800 p-4 md:mx-4 rounded-lg shadow-lg w-full md:w-auto max-h-[80vh] overflow-y-auto">
+        <div class="text-right">
+          <button id="closePopup" class="text-white hover:text-gray-500 text-xl p-4">
+            <i class="fa-solid fa-times"></i>
+          </button>
         </div>
-    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/87634197?v=4" alt="Rebel Union" class="w-20 h-20 rounded-full mb-2 shake" id="rebelOnionAvatarPopup" />
+            <p class="text-lg text-purple-600 font-bold mb-2" id="rebelOnionName"> Rebel Onion </p>
+            <p class="text-gray-500" id="rebelOnionDesc">Creator of Dantotsu</p>
+            <!-- social icons-->
+            <div class="flex items-center mt-4">
+              <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-solid fa-mug-saucer"></i>
+              </a>
+              <a href="https://www.github.com/rebelonion" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://discordapp.com/users/714249925248024617" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              // Initial values
+              const originalName = "Rebel Onion";
+              const originalDesc = "Creator of Dantotsu";
+              const originalAvatarSrc = "https://avatars.githubusercontent.com/u/87634197?v=4";
+              let hoverCount = 0;
+              let shakeCount = 0;
+              // Function to start shaking the avatar
+              function shakeAvatar() {
+                document.getElementById("rebelOnionAvatarPopup").classList.add("shake");
+                setTimeout(function() {
+                  document.getElementById("rebelOnionAvatarPopup").classList.remove("shake");
+                }, 500); // Stop shaking after 0.5 seconds
+              }
 
+              function triggerEasterEgg() {
+                console.log("Easter egg triggered!"); // Check if this message appears in the console
+                document.getElementById("rebelOnionName").textContent = "Miku is Love❤️❤️❤️";
+                document.getElementById("rebelOnionDesc").textContent = "Worlds No 1 Hatsune Miku Fan";
+              }
+              // Reset counts and enable shaking when the popup is opened
+              function resetCountsAndShaking() {
+                hoverCount = 0;
+                shakeCount = 0;
+              }
+              // Event handler for mouseover event on the avatar
+              function handleHover() {
+                if (hoverCount < 3) {
+                  hoverCount++;
+                  shakeAvatar();
+                  if (hoverCount === 3) {
+                    triggerEasterEgg();
+                  }
+                }
+              }
+              // Event handler for click event on the avatar (for mobile devices)
+              function handleClick() {
+                if (shakeCount < 3) {
+                  shakeCount++;
+                  shakeAvatar();
+                  if (shakeCount === 3) {
+                    triggerEasterEgg();
+                  }
+                }
+              }
+              // Open the staff showcase popup
+              document.getElementById("openPopup").addEventListener("click", function() {
+                document.getElementById("staffPopup").classList.remove("hidden");
+                resetCountsAndShaking(); // Reset counts and enable shaking
+                // Enable shaking on the profile picture
+                document.getElementById("rebelOnionAvatarPopup").addEventListener("mouseover", handleHover);
+                // Enable shaking on mobile devices by clicking the profile picture
+                let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                  document.getElementById("rebelOnionAvatarPopup").addEventListener("click", handleClick);
+                }
+              });
+              // Close the staff showcase popup
+              document.getElementById("closePopup").addEventListener("click", function() {
+                document.getElementById("staffPopup").classList.add("hidden");
+                // Reset elements to their original values
+                document.getElementById("rebelOnionName").textContent = originalName;
+                document.getElementById("rebelOnionDesc").textContent = originalDesc;
+                document.getElementById("rebelOnionAvatarPopup").src = originalAvatarSrc;
+                // Remove event listeners
+                document.getElementById("rebelOnionAvatarPopup").removeEventListener("mouseover", handleHover);
+                document.getElementById("rebelOnionAvatarPopup").removeEventListener("click", handleClick);
+              });
+            });
+          </script>
+          </script>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/149729762?v=4" alt="Wai What" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Wai What</p>
+            <p class="text-gray-500">Creator of Dantotsu's Branding</p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/WaiWhat" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://discordapp.com/users/928202695611908126" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/88599122?v=4" alt="Neko404" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Neko404</p>
+            <p class="text-gray-500">Main Web Dev</p>
+            <p class="text-gray-500"> If the world knew that I have the source code to the universe, they would give me all the cookies, hehe. </p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/MarshMeadow?tab=repositories" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://ko-fi.com/marshmeadow" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-solid fa-mug-saucer"></i>
+              </a>
+              <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
+                <i class="fa-brands fa-telegram" width="60" height="60"></i>
+              </a>
+              <a href="https://discordapp.com/users/1028088462508839035" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/70383209?v=4" alt="arifalam" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Arif Alam</p>
+            <p class="text-gray-500"> Contributor of Dantotsu Website / Discord Moderator. </p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/ARIF683" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://discordapp.com/users/875096438936338493" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/94872614?v=4" alt="Ayodaza" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Ayodaza</p>
+            <p class="text-gray-500"> Main Web Dev / Website's Concept Designer </p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/dazadev" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://twitter.com/ayodaza" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="https://discordapp.com/users/755280247494148199" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/99584765?v=4" alt="aayush262" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Aayush262</p>
+            <p class="text-gray-500">Screenshot Provider</p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/aayush2622" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://discordapp.com/users/918825160654598224" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+            <img src="https://avatars.githubusercontent.com/u/167056923?v=4" alt="aayush262" class="w-20 h-20 rounded-full mb-2" />
+            <p class="text-lg text-purple-600 font-bold mb-2">Itsmechinmoy</p>
+            <p class="text-gray-500">I'm a master of hiding Easter eggs! Think you've got what it takes to uncover it on the site? It's like a digital treasure hunt with a mischievous twist!</p>
+            <div class="flex items-center mt-4">
+              <a href="https://github.com/u/itsmechinmoy" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://discord.com/users/523539866311720963" class="mr-4 text-white hover:text-purple-500">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-white py-4">
-        <div class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
-            <div class="md:w-full text-center md:text-left mb-2 md:mb-0">
-                <p class="text-sm"><i class="fa-solid fa-code"></i> with <i class="fa-solid fa-heart"></i> by Dantotsu Contributors
-                </p>
-            </div>
-            <p>
-                <center> <a href="https://pastebin.com/raw/M0nTU8Bg">DMCA</a> • <a href="https://www.buymeacoffee.com/rebelonion">Donate</a> • <a href="https://discord.com/invite/4HPZ5nAWwM">Discord</a> • <a href="https://t.me/+gzBCQExtLQo1YTNh">Telegram</a> •
-                    <a href="https://github.com/rebelonion/Dantotsu">Github</a> </center>
-            </p>
-            <div class="md:w-full text-center md:text-right">
-                <button id="openPopup" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full">Credits</button>
-            </div>
+      <div class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+        <div class="md:w-full text-center md:text-left mb-2 md:mb-0">
+          <p class="text-sm">
+            <i class="fa-solid fa-code"></i> with <i class="fa-solid fa-heart"></i> by Dantotsu Contributors
+          </p>
         </div>
+        <p>
+          <center>
+            <a href="https://pastebin.com/raw/M0nTU8Bg">DMCA</a> • <a href="https://www.buymeacoffee.com/rebelonion">Donate</a> • <a href="https://discord.com/invite/4HPZ5nAWwM">Discord</a> • <a href="https://t.me/+gzBCQExtLQo1YTNh">Telegram</a> • <a href="https://github.com/rebelonion/Dantotsu">Github</a>
+          </center>
+        </p>
+        <div class="md:w-full text-center md:text-right">
+          <button id="openPopup" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full">Credits</button>
+        </div>
+      </div>
     </footer>
-
-</body>
-<script>
+  </body>
+  <script>
     // navbar
-      window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('nav');
-        if (window.scrollY > 0) {
-          navbar.classList.add('bg-opacity-80');
-        } else {
-          navbar.classList.remove('bg-opacity-80');
-        }
-      });
-      // // JavaScript to handle the language dropdown
-      // const languageDropdown = document.getElementById('languageDropdown');
-      // const languageOptions = document.getElementById('languageOptions');
-    
-      // // Toggle the visibility of language options when the dropdown button is clicked
-      // languageDropdown.addEventListener('click', () => {
-      //   languageOptions.classList.toggle('hidden');
-      // });
-    
-      // // // Close the language options when a language is selected
-      // // const languageLinks = languageOptions.querySelectorAll('a');
-      // languageLinks.forEach((link) => {
-      //   link.addEventListener('click', () => {
-      //     languageOptions.classList.add('hidden');
-      //   });
-      // });
-    
-      // // Close the language options when clicking outside of the dropdown
-      // window.addEventListener('click', (event) => {
-      //   if (!languageDropdown.contains(event.target) && !languageOptions.contains(event.target)) {
-      //     languageOptions.classList.add('hidden');
-      //   }
-      // });
-    
-      // const languageButtons = document.querySelectorAll('.language-button');
-    
-      // Change the language when a language button is clicked 
-      // keep the language buttons unhidden 
-      // languageButtons.forEach((button) => {
-      //   button.addEventListener('click', () => {
-      //     const language = button.dataset.lang;
-      //     const elements = document.querySelectorAll(`[data-lang]`);
-      //     elements.forEach((element) => {
-      //       element.style.display = 'none';
-      //     });
-      //     const elementsToShow = document.querySelectorAll(`[data-lang=${language}]`);
-      //     elementsToShow.forEach((element) => {
-      //       element.style.display = 'block';
-      //     });
-      //   });
-      // });
-    
-    
-      // hero
-      window.addEventListener('scroll', function () {
-        const opbg = document.querySelector('#opbg');
-        if (window.scrollY > 600) {
-          opbg.classList.add('bg-opacity-100');
-        } else {
-          opbg.classList.remove('bg-opacity-100');
-        }
-      });
-      // Open the staff showcase popup
-      document.getElementById('openPopup').addEventListener('click', function () {
-        document.getElementById('staffPopup').classList.remove('hidden');
-      });
-      // Close the staff showcase popup
-      document.getElementById('closePopup').addEventListener('click', function () {
-        document.getElementById('staffPopup').classList.add('hidden');
-      });
-      // reviews
-      const collapsibleButton = document.getElementById("collapsible");
-      const content = document.getElementById("content");
-    
-      let isContentVisible = false;
-    
-      collapsibleButton.addEventListener("click", function () {
-        isContentVisible = !isContentVisible;
-        content.style.display = isContentVisible ? "block" : "none";
-      });
-</script>
-
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('nav');
+      if (window.scrollY > 0) {
+        navbar.classList.add('bg-opacity-80');
+      } else {
+        navbar.classList.remove('bg-opacity-80');
+      }
+    });
+    // // JavaScript to handle the language dropdown
+    // const languageDropdown = document.getElementById('languageDropdown');
+    // const languageOptions = document.getElementById('languageOptions');
+    // // Toggle the visibility of language options when the dropdown button is clicked
+    // languageDropdown.addEventListener('click', () => {
+    //   languageOptions.classList.toggle('hidden');
+    // });
+    // // // Close the language options when a language is selected
+    // // const languageLinks = languageOptions.querySelectorAll('a');
+    // languageLinks.forEach((link) => {
+    //   link.addEventListener('click', () => {
+    //     languageOptions.classList.add('hidden');
+    //   });
+    // });
+    // // Close the language options when clicking outside of the dropdown
+    // window.addEventListener('click', (event) => {
+    //   if (!languageDropdown.contains(event.target) && !languageOptions.contains(event.target)) {
+    //     languageOptions.classList.add('hidden');
+    //   }
+    // });
+    // const languageButtons = document.querySelectorAll('.language-button');
+    // Change the language when a language button is clicked 
+    // keep the language buttons unhidden 
+    // languageButtons.forEach((button) => {
+    //   button.addEventListener('click', () => {
+    //     const language = button.dataset.lang;
+    //     const elements = document.querySelectorAll(`[data-lang]`);
+    //     elements.forEach((element) => {
+    //       element.style.display = 'none';
+    //     });
+    //     const elementsToShow = document.querySelectorAll(`[data-lang=${language}]`);
+    //     elementsToShow.forEach((element) => {
+    //       element.style.display = 'block';
+    //     });
+    //   });
+    // });
+    // hero
+    window.addEventListener('scroll', function() {
+      const opbg = document.querySelector('#opbg');
+      if (window.scrollY > 600) {
+        opbg.classList.add('bg-opacity-100');
+      } else {
+        opbg.classList.remove('bg-opacity-100');
+      }
+    });
+    // reviews
+    const collapsibleButton = document.getElementById("collapsible");
+    const content = document.getElementById("content");
+    let isContentVisible = false;
+    collapsibleButton.addEventListener("click", function() {
+      isContentVisible = !isContentVisible;
+      content.style.display = isContentVisible ? "block" : "none";
+    });
+  </script>
 </html>
