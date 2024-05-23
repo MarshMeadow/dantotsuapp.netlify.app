@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore our open-source mobile app tailored for Anilist enthusiasts. Inspired by Saikou, our app is powered by Tachi/Aniyomi extensions for an enhanced experience. Download our app now to immerse yourself in a world of Anime and Manga like never before!">
@@ -26,122 +27,125 @@
     <script src="https://kit.fontawesome.com/0a1007e48a.js" crossorigin="anonymous"></script>
     <title>Dantotsu</title>
     <style>
-      /* CSS Animation for shaking */
-      @keyframes shake {
-        0% {
-          transform: translateX(0);
-        }
-
-        25% {
-          transform: translateX(-5px) rotate(-1deg);
-        }
-
-        50% {
-          transform: translateX(5px) rotate(1deg);
-        }
-
-        75% {
-          transform: translateX(-5px) rotate(-1deg);
-        }
-
-        100% {
-          transform: translateX(0);
-        }
-      }
-
-      .shake:hover {
-        animation: shake 0.5s infinite;
-      }
+        /* CSS Animation for shaking */
+          @keyframes shake {
+            0% {
+              transform: translateX(0);
+            }
+    
+            25% {
+              transform: translateX(-5px) rotate(-1deg);
+            }
+    
+            50% {
+              transform: translateX(5px) rotate(1deg);
+            }
+    
+            75% {
+              transform: translateX(-5px) rotate(-1deg);
+            }
+    
+            100% {
+              transform: translateX(0);
+            }
+          }
+    
+          .shake:hover {
+            animation: shake 0.5s infinite;
+          }
     </style>
     <style>
-      /* CSS Animation for shaking */
-      @keyframes shake {
-        0% {
-          transform: translateX(0);
-        }
-
-        25% {
-          transform: translateX(-5px) rotate(-1deg);
-        }
-
-        50% {
-          transform: translateX(5px) rotate(1deg);
-        }
-
-        75% {
-          transform: translateX(-5px) rotate(-1deg);
-        }
-
-        100% {
-          transform: translateX(0);
-        }
-      }
-
-      .shake:hover {
-        animation: shake 0.5s infinite;
-      }
+        /* CSS Animation for shaking */
+          @keyframes shake {
+            0% {
+              transform: translateX(0);
+            }
+    
+            25% {
+              transform: translateX(-5px) rotate(-1deg);
+            }
+    
+            50% {
+              transform: translateX(5px) rotate(1deg);
+            }
+    
+            75% {
+              transform: translateX(-5px) rotate(-1deg);
+            }
+    
+            100% {
+              transform: translateX(0);
+            }
+          }
+    
+          .shake:hover {
+            animation: shake 0.5s infinite;
+          }
     </style>
-  </head>
-  <style>
+</head>
+<style>
     html,
     body {
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
-  </style>
-  <body class="bg-indigo-950">
+</style>
+
+<body class="bg-indigo-950">
     <!-- NAVBAR -->
     <nav class="bg-slate-950 bg-opacity-0 transition bg-transition text-white p-2 fixed w-full z-40">
-      <div class="container mx-auto flex justify-between">
-        <div class="flex items-center">
-          <a href="javascript:void(0);" onclick="incrementCounter()" class="text-2xl font-bold">
-            <img src="images/dantotsu_logo-f1s.png" alt="Dantotsu" class="h-10 transition-opacity hover:opacity-80" />
-          </a>
-          <script>
-            // Retrieve counter value from sessionStorage or default to 0
-            var cursedCounter = parseInt(sessionStorage.getItem("cursedCounter")) || 0;
-
-            function incrementCounter() {
-              cursedCounter++;
-              if (cursedCounter % 3 === 0) {
-                // Redirect to rickroll video
-                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-                // Reset counter after redirect
-                sessionStorage.removeItem("cursedCounter");
-              } else {
-                // Store the updated counter value in sessionStorage
-                sessionStorage.setItem("cursedCounter", cursedCounter);
-                // Reload the page
-                window.location.reload(true);
-              }
-            }
-          </script>
+        <div class="container mx-auto flex justify-between">
+            <div class="flex items-center">
+                <a href="javascript:void(0);" onclick="incrementCounter()" class="text-2xl font-bold">
+                    <img src="images/dantotsu_logo-f1s.png" alt="Dantotsu" class="h-10 transition-opacity hover:opacity-80" />
+                </a>
+                <script>
+                    // Retrieve counter value from sessionStorage or default to 0
+                    var cursedCounter = parseInt(sessionStorage.getItem("cursedCounter")) || 0;
+        
+                    function incrementCounter() {
+                      cursedCounter++;
+                      if (cursedCounter % 3 === 0) {
+                        // Redirect to rickroll video
+                        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                        // Reset counter after redirect
+                        sessionStorage.removeItem("cursedCounter");
+                      } else {
+                        // Store the updated counter value in sessionStorage
+                        sessionStorage.setItem("cursedCounter", cursedCounter);
+                        // Reload the page
+                        window.location.reload(true);
+                      }
+                    }
+                </script>
+            </div>
+            <div class="flex items-center">
+                <!-- <div class="relative group"><button id="languageDropdown" class="mr-4 transition-colors hover:text-purple-500"><i class="fa-solid fa-globe"></i></button><ul id="languageOptions" class="absolute hidden bg-white text-black p-2 space-y-1 rounded-lg shadow-md right-0 mt-3"><button class="language-button" data-lang="en">English</button><button class="language-button" data-lang="hi">Hindi</button><button class="language-button" data-lang="es">Spanish</button></ul></div> -->
+                <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                </a>
+                <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
         </div>
-        <div class="flex items-center">
-          <!-- <div class="relative group"><button id="languageDropdown" class="mr-4 transition-colors hover:text-purple-500"><i class="fa-solid fa-globe"></i></button><ul id="languageOptions" class="absolute hidden bg-white text-black p-2 space-y-1 rounded-lg shadow-md right-0 mt-3"><button class="language-button" data-lang="en">English</button><button class="language-button" data-lang="hi">Hindi</button><button class="language-button" data-lang="es">Spanish</button></ul></div> -->
-          <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500">
-            <i class="fa-solid fa-mug-saucer"></i>
-          </a>
-          <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500">
-            <i class="fa-brands fa-discord"></i>
-          </a>
-          <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
-            <i class="fa-brands fa-telegram"></i>
-          </a>
-          <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-      </div>
     </nav>
     <!-- HERO -->
     <section id="hero" class="text-white py-20 h-screen shadow-lg relative" style="background-image: url('images/ei_1698849603612-removebg-preview-1.png'); background-size: cover; background-position: center;">
-      <div class="container h-full mx-auto flex flex-col justify-center items-center relative z-10">
-        <div class="text-center">
-          <h1 class="text-5xl font-bold" data-lang="en">Installation</h1> &nbsp; <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM">
-              <b>Discord <b>
+        <div class="container h-full mx-auto flex flex-col justify-center items-center relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold" data-lang="en">Installation</h1> &nbsp;
+                <p class="text-sm" data-lang="en">Join for support!
+                    <a href="https://discord.com/invite/4HPZ5nAWwM">
+                        <b>Discord <b>
             </a> or <a href="https://t.me/+gzBCQExtLQo1YTNh">
-              <b>Telegram <a></a>
+              <>Telegram <a></a>
                 <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
                   <!-- Download button for Universal app -->
                   <div class="mb-4">
@@ -725,9 +729,50 @@
                       currentPopup = null;
                     }
                   </script>
-                  <!-- View versions -->
-                  <a href="https://github.com/rebelonion/Dantotsu/releases" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Versions</a>
-                </div>
+<!-- View versions -->
+<a href="https://github.com/rebelonion/Dantotsu/releases" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full font-bold transition-colors">Versions</a>
+</div><br>
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <!-- Total download count button -->
+    <button id="totalDownloadCountButton" class="bg-purple-950 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-md font-bold transition-colors" style="background-color: #555454; opacity: 0.8; height: 40px; display: flex; align-items: center;">
+        <img src="images/androidicon.png" alt="Android Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+        <span>Downloads</span>
+    </button>
+</div>
+<script>
+    // Function to fetch and display the total download count
+    async function fetchTotalDownloadCount() {
+        const stableRepo = 'rebelonion/Dantotsu'; // GitHub repository owner and name for stable and beta release
+        const alphaRepo = 'kaorlol/dantotsu-updater'; // GitHub repository owner and name for alpha release
+        
+        try {
+            const stableResponse = await fetch(`https://api.github.com/repos/${stableRepo}/releases`);
+            const alphaResponse = await fetch(`https://api.github.com/repos/${alphaRepo}/releases`);
+            
+            const [stableData, alphaData] = await Promise.all([stableResponse.json(), alphaResponse.json()]);
+    
+            const totalDownloadCount = calculateTotalDownloadCount(stableData) + calculateTotalDownloadCount(alphaData);
+    
+            // Update the button text with the total download count and the Android icon
+            document.getElementById('totalDownloadCountButton').innerHTML = `<img src="images/androidicon.png" alt="Android Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Downloads: ${totalDownloadCount}`;
+    
+        } catch (error) {
+            console.error('Error fetching total download count:', error);
+            // Display an error message to the user if there's an issue fetching the download count
+            alert('Error fetching total download count. Please try again later.');
+        }
+    }
+    
+    // Function to calculate the total download count for a given set of releases
+    function calculateTotalDownloadCount(releases) {
+        return releases.reduce((acc, release) => {
+            return acc + release.assets.reduce((assetAcc, asset) => assetAcc + asset.download_count, 0);
+        }, 0);
+    }
+    
+    // Call fetchTotalDownloadCount() when the page loads
+    window.onload = fetchTotalDownloadCount;
+</script>
         </div>
       </div>
       </div>
