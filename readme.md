@@ -1,3 +1,5 @@
+**(TAKEN DOWN DUE TO DMCA)**
+
 **Please Do Not Steal/Share Source Code**
 
 This is a static page hosted on https://dantotsu.app/. 
