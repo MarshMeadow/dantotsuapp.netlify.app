@@ -1,6 +1,6 @@
 **(TAKEN DOWN DUE TO DMCA)**
 
-**Please Do Not Steal/Share Source Code**
+**Official Dantotsu Website Run By The Dantotsu Web Team (Please Do Not Share)**
 
 This is a static page hosted on https://dantotsu.app/. 
 
