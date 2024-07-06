@@ -22,7 +22,7 @@ For more information, please visit our GitHub repository at https://github.com/r
 
 - [Aayush262](https://github.com/aayush2622) (Screenshot Provider)
 
-- Also others..
+- And More..
 
 **Web Team Group Discord: Private For Now**
 
