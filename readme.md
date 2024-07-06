@@ -28,6 +28,6 @@ For more information, please visit our GitHub repository at https://github.com/r
 
 [Join Official Discord](https://discord.com/invite/4HPZ5nAWwM)
 
-[Join Telegram](https://t.me/+gzBCQExtLQo1YTNh)
+[Join OFFICIAL Telegram](https://t.me/+gzBCQExtLQo1YTNh)
 
 **Contact: @Neko404 to contribute!** (Neko is NOT the the dev of dantotsu, just a contributor).
