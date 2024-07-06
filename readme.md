@@ -1,8 +1,10 @@
-**(TAKEN DOWN DUE TO DMCA)**
+**BACK UP**
 
 **Official Dantotsu Website Run By The Dantotsu Web Team (Please Do Not Share)**
 
-This is a static page hosted on https://dantotsu.app/. 
+Now hosterd here: https://dantotsuapp.netlify.app
+
+Was hosted here: This is a static page hosted on https://dantotsu.app/. 
 
 For more information, please visit our GitHub repository at https://github.com/rebelonion/Dantotsu.
 
