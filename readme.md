@@ -1,10 +1,9 @@
-**BACK UP**
-
-**Official Dantotsu Website Run By The Dantotsu Web Team (Please Do Not Share)**
+# dantotsuapp.netlify.app
+We Are Back! New dantotsuapp.netlify.app offical website code. We are back and better than ever..
 
 Now hosterd here: https://dantotsuapp.netlify.app
 
-Was hosted here: This is a static page hosted on https://dantotsu.app/. 
+Was hosted here: https://dantotsu.app/. (DMCA TakeDown)
 
 For more information, please visit our GitHub repository at https://github.com/rebelonion/Dantotsu.
 
