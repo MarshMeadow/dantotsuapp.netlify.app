@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +13,6 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Dark background color */
-            color: #fff; /* White text color */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
         .notification {
             background-color: #2e003e; /* Dark purple background */
@@ -37,148 +33,565 @@
             margin: 5px 0 0;
             font-size: 14px; /* Smaller font size */
         }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #333; /* Darker background color */
-            padding: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            z-index: 1000;
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black */
-            z-index: 999;
-        }
-        .close-button {
-            border: 2px solid #fff; /* White border */
-            border-radius: 5px; /* Rounded corners */
-            padding: 5px 10px; /* Padding around the button */
-            background-color: transparent; /* Transparent background */
-            color: #fff; /* White text color */
-            cursor: pointer; /* Cursor style */
-        }
-        .close-button:hover {
-            background-color: #fff; /* White background color on hover */
-            color: #121212; /* Dark text color on hover */
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px) rotate(-1deg); }
-            50% { transform: translateX(5px) rotate(1deg); }
-            75% { transform: translateX(-5px) rotate(-1deg); }
-            100% { transform: translateX(0); }
-        }
-        .shake:hover {
-            animation: shake 0.5s infinite;
-        }
-        nav {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            backdrop-filter: blur(10px); /* Blur effect */
-            padding: 1rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        .main-content {
-            padding-top: 80px; /* Space for the fixed navbar */
-            text-align: center;
-        }
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        .button {
-            background-color: #4b0082; /* Indigo background */
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #6a0dad; /* Darker indigo */
-        }
+    </style>
+</head>
+</html>
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dantotsu</title>
+    <style>
+      /* Dark mode styles */
+      body {
+        background-color: #121212;
+        /* Dark background color */
+        color: #fff;
+        /* White text color */
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #333;
+        /* Darker background color */
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        z-index: 1000;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,
+            0,
+            0,
+            0.7);
+        /* Darker semi-transparent black */
+        z-index: 999;
+      }
+
+      /* Square ring around the close button with rounded corners */
+      .close-button {
+        border: 2px solid #fff;
+        /* White border */
+        border-radius: 5px;
+        /* Rounded corners */
+        padding: 5px 10px;
+        /* Padding around the button */
+        background-color: transparent;
+        /* Transparent background */
+        color: #fff;
+        /* White text color */
+        cursor: pointer;
+        /* Cursor style */
+      }
+
+      .close-button:hover {
+        background-color: #fff;
+        /* White background color on hover */
+        color: #121212;
+        /* Dark text color on hover */
+      }
     </style>
     <script>
-        function showPopup() {
-            if (!localStorage.getItem("popupShown")) {
-                document.getElementById("popup").style.display = "block";
-                document.getElementById("overlay").style.display = "block";
-                localStorage.setItem("popupShown", "true");
-            }
+      // Function to show the pop-up window and overlay
+      function showPopup() {
+        // Check if the flag 'popupShown' is not set in localStorage
+        if (!localStorage.getItem("popupShown")) {
+          // Show the pop-up window and overlay
+          document.getElementById("popup").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+          // Set the flag 'popupShown' in localStorage to indicate that the popup has been shown
+          localStorage.setItem("popupShown", "true");
         }
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-        function incrementCounter() {
-            var cursedCounter = parseInt(sessionStorage.getItem("cursedCounter")) || 0;
-            cursedCounter++;
-            if (cursedCounter % 3 === 0) {
-                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-                sessionStorage.removeItem("cursedCounter");
-            } else {
-                sessionStorage.setItem("cursedCounter", cursedCounter);
-                window.location.reload(true);
-            }
-        }
+      }
+      // Function to close the pop-up window and overlay
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
     </script>
-</head>
-<body onload="showPopup()">
-    <!-- Notification -->
-    <div class="notification">
-        <h2>Notification Title</h2>
-        <p>Notification message goes here.</p>
-    </div>
-    <!-- Navbar -->
-    <nav>
-        <div>
-            <a href="javascript:void(0);" onclick="incrementCounter()">Dantotsu</a>
-        </div>
-        <div>
-            <a href="https://www.buymeacoffee.com/rebelonion"><i class="fa-solid fa-mug-saucer"></i></a>
-            <a href="https://discord.com/invite/4HPZ5nAWwM"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://t.me/+gzBCQExtLQo1YTNh"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://github.com/rebelonion/Dantotsu"><i class="fa-brands fa-github"></i></a>
-        </div>
-    </nav>
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="text-purple-700 text-6xl font-bold m-3">Dantotsu</h1>
-        <h2 class="text-gray-400 text-2xl m-3 font-bold">Better than Best, try it yourself and find out</h2>
-        <div class="buttons">
-            <a href="/install.html" class="button">Install</a>
-            <a href="#" class="button">Features</a>
-        </div>
-        <img src="/images/phone.dark.png" alt="Home screen" width="300" height="500" />
-    </div>
-    <!-- Popup -->
+    <style>
+      /* CSS Animation for shaking */
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+
+        25% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        50% {
+          transform: translateX(5px) rotate(1deg);
+        }
+
+        75% {
+          transform: translateX(-5px) rotate(-1deg);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .shake:hover {
+        animation: shake 0.5s infinite;
+      }
+    </style>
+  </head>
+  <body onload="showPopup()">
+    <!-- Call the function when the page loads -->
+    <!-- Pop-up window -->
     <div id="popup" class="popup">
-        <h2>Human Verification</h2>
-        <p>Please verify that you are not a bot.</p>
-        <button class="close-button" onclick="closePopup()">Click Here To Verify</button>
+      <h2>Human Verification</h2>
+      <p>Please verify that you are not a bot.</p>
+      <!-- Add your verification form or any other content here -->
+      <button class="close-button" onclick="closePopup()"> Click Here To Verify </button>
+      <!-- Close button with square ring -->
     </div>
     <!-- Overlay -->
     <div id="overlay" class="overlay"></div>
-</body>
+  </body>
+</html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Discover our open-source mobile app designed for Anilist enthusiasts. Drawing inspiration from Saikou, our app is enriched with Tachi/Aniyomi extensions for an enhanced experience. Join us and dive into the world of Anime and Manga like never before!" />
+    <meta name="author" content="Rebel-Onion" />
+    <meta name="keywords" content="Anilist Client, OpenSource, Tachiyomi, Aniyomi, Anime app, Anilist Sync" />
+    <meta property="og:title" content="Dantotsu" />
+    <meta property="og:description" content="Open source mobile Anilist client based off Saikou with Tachi/Aniyomi extensions" />
+    <meta name="keywords" content="dantotsu, saikou, anime, anime app, anime streaming app, anime extensions, aniyomi, tachiyomi, aniyomi extensions, tachiyomi extensions, manga reading app, manga extensions, anilist client, anilist, mal, myanimelist, best anime site, good anime site, best anime app, good anime app" />
+    <meta property="og:image" content="https://imgur.com/RwaqUkI.gif" />
+    <meta property="og:url" content="https://dantotsu.app" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Soon  -->
+    <meta name="twitter:site" content="@yourtwitterhandle" />
+    <!-- Soon -->
+    <link rel="canonical" href="https://www.dantotsu.app" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <link href="/style.css" ref="stylesheet" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#4d006b" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/0a1007e48a.js" crossorigin="anonymous"></script>
+    <title>Dantotsu</title>
+  </head>
+  <style>
+    html,
+    body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+  </style>
+  <body style="background-color: #151533;" class="h-full">
+    <!-- NAVBAR -->
+    <nav class="transition bg-transition text-white p-2 fixed w-full z-40 border-white border-b-2 bg-opacity-20 backdrop-filter backdrop-blur-lg">
+      <div class="container mx-auto flex justify-between">
+        <div class="flex items-center">
+          <a href="javascript:void(0);" onclick="incrementCounter()" class="text-2xl font-bold flex flex-row">
+            <img src="images/dantotsu_logo-f1s.png" alt="Dantotsu" class="h-10 transition-opacity hover:opacity-80" />
+            <span class="mx-5 my-1 text-white hover:text-purple-600">Dantotsu</span>
+          </a>
+          <script>
+            // Retrieve counter value from sessionStorage or default to 0
+            var cursedCounter = parseInt(sessionStorage.getItem("cursedCounter")) || 0;
+
+            function incrementCounter() {
+              cursedCounter++;
+              if (cursedCounter % 3 === 0) {
+                // Redirect to rickroll video
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                // Reset counter after redirect
+                sessionStorage.removeItem("cursedCounter");
+              } else {
+                // Store the updated counter value in sessionStorage
+                sessionStorage.setItem("cursedCounter", cursedCounter);
+                // Reload the page
+                window.location.reload(true);
+              }
+            }
+          </script>
+          <small class="text-xs ml-2"></small>
+        </div>
+        <div class="flex items-center">
+          <!-- <div class="relative group"><button id="languageDropdown" class="mr-4 transition-colors hover:text-purple-500"><i class="fa-solid fa-globe"></i></button><ul id="languageOptions" class="absolute hidden bg-white text-black p-2 space-y-1 rounded-lg shadow-md right-0 mt-3"><button class="language-button" data-lang="en">English</button><button class="language-button" data-lang="hi">Hindi</button><button class="language-button" data-lang="es">Spanish</button></ul></div> -->
+          <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-solid fa-mug-saucer"></i>
+          </a>
+          <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Cards -->
+    <div class="py-20">
+      <div class="container text-white flex md:flex-row flex-col-reverse content-center">
+        <div class="container flex flex-col md:ml-72 md:my-36 content-center m-4">
+          <h1 class="text-purple-700 text-6xl font-bold m-3">Dantotsu</h1>
+          <h2 class="text-gray-400 text-2xl m-3 font-bold">Better than Best, try it yourself and findout</h2>
+          <div class="container flex flex-row">
+            <a href="/install.html">
+              <button class="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-2">
+                Install
+              </button>
+            </a>
+            <button class="bg-gray-300 bg-opacity-15 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-2">
+              Features
+            </button>
+          </div>
+        </div>
+        <div class="container">
+          <img src="/images/phone.dark.png" alt="Home screen" width="300" height="500" />
+        </div>
+      </div>
+      <div class="container flex md:flex-row flex-col">
+        <div class="contaier flex flex-col bg-blue-900 mx-20 h-64 md:w-[36rem] rounded-lg p-8 bg-opacity-20 m-12">
+          <div class="mt-4 ml-2 bg-black bg-opacity-20 p-2 w-12">
+            <svg height="24" width="24" viewBox="0 -960 960 960" fill="green" xmlns="http://www.w3.org/2000/svg"><path d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z"/></svg>
+          </div>
+          <div class="container ml-4 my-2 font-bold">
+            <h3>Anilist Tracking</h3>
+            <p class="text-gray-400 my-2">Automatically keep track of your series with AniList</p>
+          </div>
+        </div>
+        <div class="contaier flex flex-col bg-blue-900 mx-20 h-64 md:w-[36rem] rounded-lg p-8 bg-opacity-20 m-12">
+          <div class="mt-4 ml-2 bg-black bg-opacity-20 p-2 w-12">
+            <?xml version="1.0" encoding="utf-8"?>
+
+            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg fill="green" width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            
+            <defs>
+            
+            <style>.icon-torrent{fill-rule:evenodd;}</style>
+            
+            </defs>
+            
+            <g>
+            
+            <polygon class="icon-torrent" points="3 5 7 1 7 5 3 5"/>
+            
+            <path class="icon-torrent" d="M7,1,3,5H7ZM8,1V6H7.12V8.7A.88.88,0,0,0,8,9.58a1,1,0,0,0,.88-1V6h1.38v5.2a1.81,1.81,0,0,1-1.19-.82,2,2,0,0,1-1.95.13V13H5.73V6H3v9H13V1Z"/>
+            
+            </g>
+            
+            </svg>
+          </div>
+          <div class="container ml-4 my-2 font-bold">
+            <h3>Torrent</h3>
+            <p class="text-gray-400 my-2">Keeps Your Downloads speedy</p>
+          </div>
+        </div>
+        <div class="contaier flex flex-col bg-blue-900 mx-20 h-64 md:w-[36rem] rounded-lg p-8 bg-opacity-20 m-12">
+          <div class="mt-4 ml-2 bg-black bg-opacity-20 p-2 w-12">
+            <svg height="24" width="24" viewBox="0 -960 960 960" fill="orange" xmlns="http://www.w3.org/2000/svg"><path d="M352-120H200q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-33 23.5-56.5T200-800h160q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v160q0 33-23.5 56.5T720-120H568q0-50-31.5-85T460-240q-45 0-76.5 35T352-120Zm-152-80h85q24-66 77-93t98-27q45 0 98 27t77 93h85v-240h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-240H480v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80H200v88q54 20 87 67t33 105q0 57-33 104t-87 68v88Zm310-310Z"/></svg>
+          </div>
+          <div class="container ml-4 my-2 font-bold">
+            <h3>Extensions</h3>
+            <p class="text-gray-400 my-2">Watch in Which Language you want</p>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!--Staff popup-->
+        <div id="staffPopup" class="fixed inset-0 z-50 flex items-center justify-center hidden rounded-md">
+          <div class="bg-slate-800 p-4 md:mx-4 rounded-lg shadow-lg w-full md:w-auto max-h-[80vh] overflow-y-auto">
+            <div class="text-right">
+              <button id="closePopup" class="text-white hover:text-gray-500 text-xl p-4">
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/87634197?v=4" alt="Rebel Union" class="w-20 h-20 rounded-full mb-2 shake" id="rebelOnionAvatarPopup" />
+                <p class="text-lg text-purple-600 font-bold mb-2" id="rebelOnionName"> Rebel Onion </p>
+                <p class="text-gray-500" id="rebelOnionDesc">Creator of Dantotsu</p>
+                <!-- social icons-->
+                <div class="flex items-center mt-4">
+                  <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                  </a>
+                  <a href="https://www.github.com/rebelonion" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/714249925248024617" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  // Initial values
+                  const originalName = "Rebel Onion";
+                  const originalDesc = "Creator of Dantotsu";
+                  const originalAvatarSrc = "https://avatars.githubusercontent.com/u/87634197?v=4";
+                  let hoverCount = 0;
+                  let shakeCount = 0;
+                  // Function to start shaking the avatar
+                  function shakeAvatar() {
+                    document.getElementById("rebelOnionAvatarPopup").classList.add("shake");
+                    setTimeout(function() {
+                      document.getElementById("rebelOnionAvatarPopup").classList.remove("shake");
+                    }, 500); // Stop shaking after 0.5 seconds
+                  }
+    
+                  function triggerEasterEgg() {
+                    console.log("Easter egg triggered!"); // Check if this message appears in the console
+                    document.getElementById("rebelOnionName").textContent = "Miku is Love❤️❤️❤️";
+                    document.getElementById("rebelOnionDesc").textContent = "Worlds No 1 Hatsune Miku Fan";
+                  }
+                  // Reset counts and enable shaking when the popup is opened
+                  function resetCountsAndShaking() {
+                    hoverCount = 0;
+                    shakeCount = 0;
+                  }
+                  // Event handler for mouseover event on the avatar
+                  function handleHover() {
+                    if (hoverCount < 3) {
+                      hoverCount++;
+                      shakeAvatar();
+                      if (hoverCount === 3) {
+                        triggerEasterEgg();
+                      }
+                    }
+                  }
+                  // Event handler for click event on the avatar (for mobile devices)
+                  function handleClick() {
+                    if (shakeCount < 3) {
+                      shakeCount++;
+                      shakeAvatar();
+                      if (shakeCount === 3) {
+                        triggerEasterEgg();
+                      }
+                    }
+                  }
+                  // Open the staff showcase popup
+                  document.getElementById("openPopup").addEventListener("click", function() {
+                    document.getElementById("staffPopup").classList.remove("hidden");
+                    resetCountsAndShaking(); // Reset counts and enable shaking
+                    // Enable shaking on the profile picture
+                    document.getElementById("rebelOnionAvatarPopup").addEventListener("mouseover", handleHover);
+                    // Enable shaking on mobile devices by clicking the profile picture
+                    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    if (isMobile) {
+                      document.getElementById("rebelOnionAvatarPopup").addEventListener("click", handleClick);
+                    }
+                  });
+                  // Close the staff showcase popup
+                  document.getElementById("closePopup").addEventListener("click", function() {
+                    document.getElementById("staffPopup").classList.add("hidden");
+                    // Reset elements to their original values
+                    document.getElementById("rebelOnionName").textContent = originalName;
+                    document.getElementById("rebelOnionDesc").textContent = originalDesc;
+                    document.getElementById("rebelOnionAvatarPopup").src = originalAvatarSrc;
+                    // Remove event listeners
+                    document.getElementById("rebelOnionAvatarPopup").removeEventListener("mouseover", handleHover);
+                    document.getElementById("rebelOnionAvatarPopup").removeEventListener("click", handleClick);
+                  });
+                });
+              </script>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/149729762?v=4" alt="Wai What" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Wai What</p>
+                <p class="text-gray-500">Creator of Dantotsu's Branding</p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/WaiWhat" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/928202695611908126" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/88599122?v=4" alt="Neko404" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Neko404</p>
+                <p class="text-gray-500">Main Web Dev</p>
+                <p class="text-gray-500"> If the world knew that I have the source code to the universe, they would give me all the cookies, hehe. </p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/MarshMeadow?tab=repositories" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://ko-fi.com/marshmeadow" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                  </a>
+                  <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500">
+                    <i class="fa-brands fa-telegram" width="60" height="60"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/1028088462508839035" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/70383209?v=4" alt="arifalam" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Arif Alam</p>
+                <p class="text-gray-500"> Contributor of Dantotsu Website / Discord Moderator. </p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/ARIF683" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/875096438936338493" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/94872614?v=4" alt="Ayodaza" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Ayodaza</p>
+                <p class="text-gray-500"> Main Web Dev / Website's Concept Designer </p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/dazadev" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://twitter.com/ayodaza" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/755280247494148199" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/99584765?v=4" alt="aayush262" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Aayush262</p>
+                <p class="text-gray-500">Screenshot Provider</p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/aayush2622" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://discordapp.com/users/918825160654598224" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="bg-slate-900 p-4 rounded-lg shadow-md">
+                <img src="https://avatars.githubusercontent.com/u/167056923?v=4" alt="aayush262" class="w-20 h-20 rounded-full mb-2" />
+                <p class="text-lg text-purple-600 font-bold mb-2">Itsmechinmoy</p>
+                <p class="text-gray-500">I'm a master of hiding Easter eggs! Think you've got what it takes to uncover it on the site? It's like a digital treasure hunt with a mischievous twist!</p>
+                <div class="flex items-center mt-4">
+                  <a href="https://github.com/u/itsmechinmoy" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://discord.com/users/523539866311720963" class="mr-4 text-white hover:text-purple-500">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!-- FOOTER -->
+    <footer class="bg-slate-950 text-white py-4">
+      <div class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+        <div class="md:w-full text-center md:text-left mb-2 md:mb-0">
+          <p class="text-sm">
+            <i class="fa-solid fa-code"></i> with <i class="fa-solid fa-heart"></i> by Dantotsu Contributors
+          </p>
+        </div>
+        <p>
+          <center>
+            <a href="https://pastebin.com/raw/M0nTU8Bg">DMCA</a> • <a href="https://www.buymeacoffee.com/rebelonion">Donate</a> • <a href="https://discord.com/invite/4HPZ5nAWwM">Discord</a> • <a href="https://t.me/+gzBCQExtLQo1YTNh">Telegram</a> • <a href="https://github.com/rebelonion/Dantotsu">Github</a>
+          </center>
+        </p>
+        <div class="md:w-full text-center md:text-right">
+          <button id="openPopup" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full"> Credits </button>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    // navbar
+    window.addEventListener("scroll", function() {
+      const navbar = document.querySelector("nav");
+      if (window.scrollY > 0) {
+        navbar.classList.add("bg-opacity-80");
+      } else {
+        navbar.classList.remove("bg-opacity-80");
+      }
+    });
+    // // JavaScript to handle the language dropdown
+    // const languageDropdown = document.getElementById('languageDropdown');
+    // const languageOptions = document.getElementById('languageOptions');
+    // // Toggle the visibility of language options when the dropdown button is clicked
+    // languageDropdown.addEventListener('click', () => {
+    //   languageOptions.classList.toggle('hidden');
+    // });
+    // // // Close the language options when a language is selected
+    // // const languageLinks = languageOptions.querySelectorAll('a');
+    // languageLinks.forEach((link) => {
+    //   link.addEventListener('click', () => {
+    //     languageOptions.classList.add('hidden');
+    //   });
+    // });
+    // // Close the language options when clicking outside of the dropdown
+    // window.addEventListener('click', (event) => {
+    //   if (!languageDropdown.contains(event.target) && !languageOptions.contains(event.target)) {
+    //     languageOptions.classList.add('hidden');
+    //   }
+    // });
+    // const languageButtons = document.querySelectorAll('.language-button');
+    // Change the language when a language button is clicked
+    // keep the language buttons unhidden
+    // languageButtons.forEach((button) => {
+    //   button.addEventListener('click', () => {
+    //     const language = button.dataset.lang;
+    //     const elements = document.querySelectorAll(`[data-lang]`);
+    //     elements.forEach((element) => {
+    //       element.style.display = 'none';
+    //     });
+    //     const elementsToShow = document.querySelectorAll(`[data-lang=${language}]`);
+    //     elementsToShow.forEach((element) => {
+    //       element.style.display = 'block';
+    //     });
+    //   });
+    // });
+    // hero
+    window.addEventListener("scroll", function() {
+      const opbg = document.querySelector("#opbg");
+      if (window.scrollY > 600) {
+        opbg.classList.add("bg-opacity-100");
+      } else {
+        opbg.classList.remove("bg-opacity-100");
+      }
+    });
+    // Open the staff showcase popup
+    document.getElementById("openPopup").addEventListener("click", function() {
+      document.getElementById("staffPopup").classList.remove("hidden");
+    });
+    // Close the staff showcase popup
+    document.getElementById("closePopup").addEventListener("click", function() {
+      document.getElementById("staffPopup").classList.add("hidden");
+    });
+    // reviews
+    const collapsibleButton = document.getElementById("collapsible");
+    const content = document.getElementById("content");
+    let isContentVisible = false;
+    collapsibleButton.addEventListener("click", function() {
+      isContentVisible = !isContentVisible;
+      content.style.display = isContentVisible ? "block" : "none";
+    });
+  </script>
 </html>
