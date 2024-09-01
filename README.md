@@ -1,4 +1,4 @@
-# dantotsuapp.netlify.app
+# dantotsuapp.netlify.app (BETA)
 We Are Back! New dantotsuapp.netlify.app offical website code. We are back and better than ever..
 
 Now hosterd here: https://dantotsuapp.netlify.app
